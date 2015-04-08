@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>75C6A2D3-19AD-416A-93F4-A56178586C6E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Voidology</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B065D10251145C875B15E8C7F3B768E4F88BCB8A</key>
+		<string>https://github.com/andrewjclark/voidology.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Voidology.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B065D10251145C875B15E8C7F3B768E4F88BCB8A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/andrewjclark/voidology.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B065D10251145C875B15E8C7F3B768E4F88BCB8A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B065D10251145C875B15E8C7F3B768E4F88BCB8A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>voidology</string>
+		</dict>
+	</array>
+</dict>
+</plist>

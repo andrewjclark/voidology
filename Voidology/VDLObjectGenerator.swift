@@ -28,8 +28,6 @@ public class VDLObjectGenerator {
     public func player() -> SKSpriteNode {
         
         let playerNode = SKSpriteNode(imageNamed: "Ship", normalMapped: false);
-        playerNode.position = CGPointMake(200, 200);
-        println(playerNode.size)
         
         playerNode.physicsBody = SKPhysicsBody(texture: playerNode.texture, size:CGSizeMake(playerNode.size.width - 15, playerNode.size.height - 15))
         playerNode.physicsBody?.mass = 1
@@ -52,7 +50,7 @@ public class VDLObjectGenerator {
         let positionX = CGFloat(arc4random_uniform(UInt32(rect.width)))
         let positionY = CGFloat(arc4random_uniform(UInt32(rect.height)))
         
-        return CGPointMake(positionX, positionY)
+        return CGPointMake(rect.origin.x + positionX, rect.origin.y + positionY)
     }
     
     
