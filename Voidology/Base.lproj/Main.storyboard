@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Voidology" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-ao-0dj">
+                                <rect key="frame" x="426" y="232" width="118" height="246"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDown" id="LYi-VC-7Su"/>
+                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="c75-33-0ri"/>
+                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchCancel" id="68Y-aJ-ORJ"/>
+                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="QCH-YV-Nhs"/>
+                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lHK-F4-vxU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei2-zg-xuR">
+                                <rect key="frame" x="83" y="244" width="118" height="246"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="8SY-bu-JRy"/>
+                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDown" id="kTt-I9-hSk"/>
+                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchCancel" id="Mdj-xc-oyz"/>
+                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NxM-N4-xW4"/>
+                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="cIl-2E-fef"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpC-WG-diN">
+                                <rect key="frame" x="241" y="232" width="118" height="246"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDown" id="O9K-qY-Myn"/>
+                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="PjZ-Qr-1hL"/>
+                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="JiF-Q9-bdf"/>
+                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchCancel" id="drA-kw-1Xu"/>
+                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hDw-0e-X8P"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="XpC-WG-diN" secondAttribute="bottom" id="8b7-Tx-FMO"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Ei2-zg-xuR" secondAttribute="bottom" id="EJb-Kg-PGS"/>
+                            <constraint firstItem="Ei2-zg-xuR" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="GjG-S7-Rwa"/>
+                            <constraint firstItem="XpC-WG-diN" firstAttribute="width" secondItem="Ei2-zg-xuR" secondAttribute="width" id="QAw-Af-tS1"/>
+                            <constraint firstItem="XpC-WG-diN" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="byc-re-Fqf"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2B7-ao-0dj" secondAttribute="bottom" id="in7-rL-1Kf"/>
+                            <constraint firstItem="2B7-ao-0dj" firstAttribute="leading" secondItem="XpC-WG-diN" secondAttribute="trailing" id="lQR-pJ-WfY"/>
+                            <constraint firstAttribute="right" secondItem="2B7-ao-0dj" secondAttribute="right" id="lza-u7-xTr"/>
+                            <constraint firstItem="Ei2-zg-xuR" firstAttribute="left" secondItem="kh9-bI-dsS" secondAttribute="left" id="sN0-47-rJh"/>
+                            <constraint firstItem="XpC-WG-diN" firstAttribute="width" secondItem="2B7-ao-0dj" secondAttribute="width" id="w4e-Z4-oVg"/>
+                            <constraint firstItem="XpC-WG-diN" firstAttribute="leading" secondItem="Ei2-zg-xuR" secondAttribute="trailing" id="z6q-9a-Jmy"/>
+                            <constraint firstItem="2B7-ao-0dj" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="ztL-NF-DFJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="centerButton" destination="XpC-WG-diN" id="gcN-Zh-CVY"/>
+                        <outlet property="leftButton" destination="Ei2-zg-xuR" id="A3d-CP-cqA"/>
+                        <outlet property="rightButton" destination="2B7-ao-0dj" id="IlX-7I-SvS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

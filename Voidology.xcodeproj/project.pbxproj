@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5147047A1ABFB9B60069B25C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514704791ABFB9B60069B25C /* AppDelegate.swift */; };
+		5147047C1ABFB9B60069B25C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5147047B1ABFB9B60069B25C /* ViewController.swift */; };
+		5147047F1ABFB9B60069B25C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5147047D1ABFB9B60069B25C /* Main.storyboard */; };
+		514704811ABFB9B60069B25C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514704801ABFB9B60069B25C /* Images.xcassets */; };
+		514704841ABFB9B60069B25C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 514704821ABFB9B60069B25C /* LaunchScreen.xib */; };
+		514704901ABFB9B60069B25C /* VoidologyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5147048F1ABFB9B60069B25C /* VoidologyTests.swift */; };
+		5147049A1ABFBA060069B25C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514704991ABFBA060069B25C /* SpriteKit.framework */; };
+		514EAEFD1AD2579D00C88DF9 /* VDLObjectGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EAEFC1AD2579D00C88DF9 /* VDLObjectGenerator.swift */; };
+		515A28B31ABFBAC0009588DB /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515A28B21ABFBAC0009588DB /* MainScene.swift */; };
+		515A28B51ABFBCD2009588DB /* Ship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 515A28B41ABFBCD2009588DB /* Ship@2x.png */; };
+		51E991D81AD254C100C3887F /* VDLUserInputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E991D71AD254C100C3887F /* VDLUserInputManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5147048A1ABFB9B60069B25C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5147046C1ABFB9B60069B25C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 514704731ABFB9B60069B25C;
+			remoteInfo = Voidology;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		514704741ABFB9B60069B25C /* Voidology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voidology.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		514704781ABFB9B60069B25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		514704791ABFB9B60069B25C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5147047B1ABFB9B60069B25C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5147047E1ABFB9B60069B25C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		514704801ABFB9B60069B25C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		514704831ABFB9B60069B25C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		514704891ABFB9B60069B25C /* VoidologyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoidologyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5147048E1ABFB9B60069B25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5147048F1ABFB9B60069B25C /* VoidologyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidologyTests.swift; sourceTree = "<group>"; };
+		514704991ABFBA060069B25C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		514EAEFC1AD2579D00C88DF9 /* VDLObjectGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLObjectGenerator.swift; sourceTree = "<group>"; };
+		515A28B21ABFBAC0009588DB /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		515A28B41ABFBCD2009588DB /* Ship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship@2x.png"; sourceTree = "<group>"; };
+		51E991D71AD254C100C3887F /* VDLUserInputManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLUserInputManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		514704711ABFB9B60069B25C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5147049A1ABFBA060069B25C /* SpriteKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		514704861ABFB9B60069B25C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5147046B1ABFB9B60069B25C = {
+			isa = PBXGroup;
+			children = (
+				514704991ABFBA060069B25C /* SpriteKit.framework */,
+				514704761ABFB9B60069B25C /* Voidology */,
+				5147048C1ABFB9B60069B25C /* VoidologyTests */,
+				514704751ABFB9B60069B25C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		514704751ABFB9B60069B25C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				514704741ABFB9B60069B25C /* Voidology.app */,
+				514704891ABFB9B60069B25C /* VoidologyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		514704761ABFB9B60069B25C /* Voidology */ = {
+			isa = PBXGroup;
+			children = (
+				515A28B41ABFBCD2009588DB /* Ship@2x.png */,
+				514704791ABFB9B60069B25C /* AppDelegate.swift */,
+				5147047B1ABFB9B60069B25C /* ViewController.swift */,
+				515A28B21ABFBAC0009588DB /* MainScene.swift */,
+				51E991D71AD254C100C3887F /* VDLUserInputManager.swift */,
+				514EAEFC1AD2579D00C88DF9 /* VDLObjectGenerator.swift */,
+				5147047D1ABFB9B60069B25C /* Main.storyboard */,
+				514704801ABFB9B60069B25C /* Images.xcassets */,
+				514704821ABFB9B60069B25C /* LaunchScreen.xib */,
+				514704771ABFB9B60069B25C /* Supporting Files */,
+			);
+			path = Voidology;
+			sourceTree = "<group>";
+		};
+		514704771ABFB9B60069B25C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				514704781ABFB9B60069B25C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5147048C1ABFB9B60069B25C /* VoidologyTests */ = {
+			isa = PBXGroup;
+			children = (
+				5147048F1ABFB9B60069B25C /* VoidologyTests.swift */,
+				5147048D1ABFB9B60069B25C /* Supporting Files */,
+			);
+			path = VoidologyTests;
+			sourceTree = "<group>";
+		};
+		5147048D1ABFB9B60069B25C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5147048E1ABFB9B60069B25C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		514704731ABFB9B60069B25C /* Voidology */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 514704931ABFB9B60069B25C /* Build configuration list for PBXNativeTarget "Voidology" */;
+			buildPhases = (
+				514704701ABFB9B60069B25C /* Sources */,
+				514704711ABFB9B60069B25C /* Frameworks */,
+				514704721ABFB9B60069B25C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Voidology;
+			productName = Voidology;
+			productReference = 514704741ABFB9B60069B25C /* Voidology.app */;
+			productType = "com.apple.product-type.application";
+		};
+		514704881ABFB9B60069B25C /* VoidologyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 514704961ABFB9B60069B25C /* Build configuration list for PBXNativeTarget "VoidologyTests" */;
+			buildPhases = (
+				514704851ABFB9B60069B25C /* Sources */,
+				514704861ABFB9B60069B25C /* Frameworks */,
+				514704871ABFB9B60069B25C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5147048B1ABFB9B60069B25C /* PBXTargetDependency */,
+			);
+			name = VoidologyTests;
+			productName = VoidologyTests;
+			productReference = 514704891ABFB9B60069B25C /* VoidologyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5147046C1ABFB9B60069B25C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Andrew J Clark";
+				TargetAttributes = {
+					514704731ABFB9B60069B25C = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					514704881ABFB9B60069B25C = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 514704731ABFB9B60069B25C;
+					};
+				};
+			};
+			buildConfigurationList = 5147046F1ABFB9B60069B25C /* Build configuration list for PBXProject "Voidology" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5147046B1ABFB9B60069B25C;
+			productRefGroup = 514704751ABFB9B60069B25C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				514704731ABFB9B60069B25C /* Voidology */,
+				514704881ABFB9B60069B25C /* VoidologyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		514704721ABFB9B60069B25C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				515A28B51ABFBCD2009588DB /* Ship@2x.png in Resources */,
+				5147047F1ABFB9B60069B25C /* Main.storyboard in Resources */,
+				514704841ABFB9B60069B25C /* LaunchScreen.xib in Resources */,
+				514704811ABFB9B60069B25C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		514704871ABFB9B60069B25C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		514704701ABFB9B60069B25C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				515A28B31ABFBAC0009588DB /* MainScene.swift in Sources */,
+				51E991D81AD254C100C3887F /* VDLUserInputManager.swift in Sources */,
+				5147047C1ABFB9B60069B25C /* ViewController.swift in Sources */,
+				514EAEFD1AD2579D00C88DF9 /* VDLObjectGenerator.swift in Sources */,
+				5147047A1ABFB9B60069B25C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		514704851ABFB9B60069B25C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				514704901ABFB9B60069B25C /* VoidologyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5147048B1ABFB9B60069B25C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 514704731ABFB9B60069B25C /* Voidology */;
+			targetProxy = 5147048A1ABFB9B60069B25C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5147047D1ABFB9B60069B25C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5147047E1ABFB9B60069B25C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		514704821ABFB9B60069B25C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				514704831ABFB9B60069B25C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		514704911ABFB9B60069B25C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		514704921ABFB9B60069B25C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		514704941ABFB9B60069B25C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Voidology/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		514704951ABFB9B60069B25C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Voidology/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		514704971ABFB9B60069B25C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VoidologyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voidology.app/Voidology";
+			};
+			name = Debug;
+		};
+		514704981ABFB9B60069B25C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VoidologyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voidology.app/Voidology";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5147046F1ABFB9B60069B25C /* Build configuration list for PBXProject "Voidology" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				514704911ABFB9B60069B25C /* Debug */,
+				514704921ABFB9B60069B25C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		514704931ABFB9B60069B25C /* Build configuration list for PBXNativeTarget "Voidology" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				514704941ABFB9B60069B25C /* Debug */,
+				514704951ABFB9B60069B25C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		514704961ABFB9B60069B25C /* Build configuration list for PBXNativeTarget "VoidologyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				514704971ABFB9B60069B25C /* Debug */,
+				514704981ABFB9B60069B25C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5147046C1ABFB9B60069B25C /* Project object */;
+}
