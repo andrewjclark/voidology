@@ -13,15 +13,13 @@ public class MainScene: SKScene {
     
     var playerNode = SKSpriteNode()
     
-    var worldNode = SKNode()
-    
-    var backgroundNode = SKNode()
-    
     var asteroidSet: [SKSpriteNode] = [] // Rename this to disposableObjectSet
     
     var tempBool = false
     
     var previousVisibleFrame:CGRect?
+    
+    var layerSet = Dictionary<UInt, VDLLayer>()
     
     override public func didMoveToView(view: SKView) {
         
@@ -29,19 +27,14 @@ public class MainScene: SKScene {
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0);
         self.anchorPoint = CGPointMake (0.5,0.5);
         
-        backgroundNode.zPosition = -1
-        
-        self.addChild(worldNode)
-        self.addChild(backgroundNode)
-        
         // Make Player
         playerNode = VDLObjectGenerator().player()
         playerNode.anchorPoint = CGPointMake(0.5, 0.5)
         
-        self.addChildToWorld(playerNode)
+        self.addNodeToWorld(playerNode, depth: 0)
         
         // Make Asteroids
-        for var asteroidCount = 0; asteroidCount < 10; asteroidCount++ {
+        for var asteroidCount = 0; asteroidCount < 0; asteroidCount++ {
             var asteroid = VDLObjectGenerator().asteroid()
             
             if let rect = self.view?.bounds {
@@ -50,7 +43,7 @@ public class MainScene: SKScene {
             
             asteroidSet.append(asteroid)
             
-            self.addChildToWorld(asteroid)
+            self.addNodeToWorld(asteroid, depth: 0)
         }
         
         // Make Stars
@@ -64,18 +57,31 @@ public class MainScene: SKScene {
             
             asteroidSet.append(star)
             
-            self.addChildToBackground(star)
+            self.addNodeToWorld(star, depth: 10)
         }
     }
     
-    public func addChildToWorld(node: SKNode) {
-        // Add a node to worldNode
-        worldNode.addChild(node)
+    public func addNodeToWorld(node: SKNode, depth: UInt) {
+        
+        var layer = self.layerWithDepth(depth)
+        
+        layer.addChild(node)
+        
     }
     
-    public func addChildToBackground(node: SKNode) {
-        // Add a node to the background Node
-        backgroundNode.addChild(node)
+    func layerWithDepth(depth: UInt) -> VDLLayer {
+        
+        if let layer = layerSet[depth] {
+            return layer
+        } else {
+            var newLayer = VDLLayer()
+            newLayer.zPosition = CGFloat(depth) * -1
+            newLayer.depth = depth
+            self.addChild(newLayer)
+            
+            layerSet[depth] = newLayer
+            return newLayer
+        }
     }
     
     public override func update(currentTime: NSTimeInterval) {
@@ -181,34 +187,34 @@ public class MainScene: SKScene {
                         
                         newSlices.append(newSlice)
                         
-                        println("up")
+//                        println("up")
                     }
                     
                     if(visibleScreen.origin.y < previousVisibleFrame.origin.y) {
                         // We are moving downwards, thus the newHorizontalSlice is on the bottom
                         let newSlice = CGRectMake(CGRectGetMinX(visibleScreen), CGRectGetMinY(visibleScreen), visibleScreen.width, CGRectGetMinY(previousVisibleFrame) - CGRectGetMinY(visibleScreen))
                         newSlices.append(newSlice)
-                        println("down")
+//                        println("down")
                     }
                     
                     if(visibleScreen.origin.x > previousVisibleFrame.origin.x) {
                         // We are moving rightwards, thus the newVerticalSlice is on the right
                         let newSlice = CGRectMake(CGRectGetMaxX(previousVisibleFrame), CGRectGetMinY(visibleScreen), CGRectGetMaxX(visibleScreen) - CGRectGetMaxX(previousVisibleFrame), visibleScreen.height)
                         newSlices.append(newSlice)
-                        println("right")
+//                        println("right")
                     }
                     
                     if(visibleScreen.origin.x < previousVisibleFrame.origin.x) {
                         // We are moving leftwards, newVerticalSlice should be on the left
                         let newSlice = CGRectMake(CGRectGetMinX(visibleScreen), CGRectGetMinY(visibleScreen), CGRectGetMinX(previousVisibleFrame) - CGRectGetMinX(visibleScreen), visibleScreen.height)
                         newSlices.append(newSlice)
-                        println("left")
+//                        println("left")
                     }
                 }
             } else {
                 // There has never been a previousVisibleFrame
                 newSlices.append(visibleScreen)
-                println("no previous visible frame")
+//                println("no previous visible frame")
             }
             
             
@@ -224,7 +230,7 @@ public class MainScene: SKScene {
                 
                 let sliceArea:CGFloat = self.areaOfRect(slice)
                 
-                println("sliceArea: \(sliceArea)")
+//                println("sliceArea: \(sliceArea)")
                 
                 // Area when travelling quickly is, say, 20
                 
@@ -234,7 +240,7 @@ public class MainScene: SKScene {
                 
                 var numberOfAsteroids = asteroidRatio * sliceArea
                 
-                println("numberOfAsteroids \(numberOfAsteroids)")
+//                println("numberOfAsteroids \(numberOfAsteroids)")
                 
                 while numberOfAsteroids > 0 {
                     newObjectCount++
@@ -243,14 +249,14 @@ public class MainScene: SKScene {
                     
                     let random = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
                     
-                    println("random \(random)")
+//                    println("random \(random)")
                     
                     if random < numberOfAsteroids {
                         let newAsteroid = VDLObjectGenerator().asteroid()
                         
                         newAsteroid.position = VDLObjectGenerator().randomPositionInRect(slice)
                         
-                        self.addChildToWorld(newAsteroid)
+                        self.addNodeToWorld(newAsteroid, depth: 0)
                     }
                     
                     numberOfAsteroids--
@@ -259,27 +265,37 @@ public class MainScene: SKScene {
                 
                 
                 
-                let starRatio:CGFloat = 1 / 10000 // Stars appear 1 in every 10000 points
+                let starRatio:CGFloat = 1 / 5000 // Stars appear 1 in every 10000 points
                 
                 var numberOfStars = starRatio * sliceArea
                 
-                println("numberOfStars \(numberOfStars)")
+//                println("numberOfStars \(numberOfStars)")
                 
                 while numberOfStars > 0 {
                     newObjectCount++
                     
-                    // Make a new asteroid somewhere in this slice
+                    // Make a new star somewhere in this slice
                     
                     let random = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
                     
-                    println("random \(random)")
+//                    println("random \(random)")
                     
                     if random < numberOfStars {
                         let newStar = VDLObjectGenerator().star()
                         
                         newStar.position = VDLObjectGenerator().randomPositionInRect(slice)
                         
-                        self.addChildToBackground(newStar)
+                        var depth = UInt(arc4random_uniform(10)) + 1
+                        
+//                        depth = 20
+                        
+//                        var depthFloat = (102 - CGFloat(depth)) / 10
+                        
+//                        newStar.size = CGSizeMake(depthFloat, depthFloat)
+                        
+//                        newStar.size = CGSizeMake(3, 3)
+                        
+                        self.addNodeToWorld(newStar, depth: depth)
                     }
                     
                     numberOfStars--
@@ -289,13 +305,13 @@ public class MainScene: SKScene {
                 
                 // TEMP: Draw the rects
                 
-                let sliceNode = self.nodeFromRect(slice, color: UIColor.redColor().colorWithAlphaComponent(0.2))
+//                let sliceNode = self.nodeFromRect(slice, color: UIColor.redColor().colorWithAlphaComponent(0.2))
 //                self.addChildToWorld(sliceNode)
                 
 //                asteroidSet.append(sliceNode)
             }
             
-            println("created \(newObjectCount) new objects")
+//            println("created \(newObjectCount) new objects")
             
             
             
@@ -340,10 +356,6 @@ public class MainScene: SKScene {
                 
                 let asteroidCollisionMap = CGRectMake(node.position.x - node.size.width / 2 , node.position.y - node.size.height / 2 , node.size.width , node.size.height)
                 
-                let tempAsteroid = self.nodeFromRect(asteroidCollisionMap, color: UIColor.grayColor())
-                
-                self.addChildToWorld(tempAsteroid)
-                
                 if asteroidCollisionMap.intersects(visibleScreen) == false {
                     // Asteroid is out of bounds, destroy it.
                     
@@ -373,12 +385,22 @@ public class MainScene: SKScene {
     
     
     public func centerOnNode(node: SKNode) {
-        // Position worldNode and backgroundNode
-        worldNode.position.x = -node.position.x
-        worldNode.position.y = -node.position.y
+        for (depth, layer) in layerSet {
+            
+            let depthFloat = self.divisorForDepth(depth)
+            
+            layer.position.x = -node.position.x * depthFloat
+            layer.position.y = -node.position.y * depthFloat
+            
+        }
+    }
+    
+    func divisorForDepth(depth: UInt) -> CGFloat {
+//        var depthFloat = 1 / ((CGFloat(depth) + 1) * (CGFloat(depth) + 1))
         
-        backgroundNode.position.x = -node.position.x * 1.0
-        backgroundNode.position.y = -node.position.y * 1.0
+        var depthFloat = 1 / (CGFloat(depth) + 1)
+        
+        return depthFloat
     }
    
 }

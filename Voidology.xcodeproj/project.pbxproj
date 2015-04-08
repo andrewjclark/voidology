@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		511B92D31AD54EBE0027087D /* VDLLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511B92D21AD54EBE0027087D /* VDLLayer.swift */; };
 		5147047A1ABFB9B60069B25C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514704791ABFB9B60069B25C /* AppDelegate.swift */; };
 		5147047C1ABFB9B60069B25C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5147047B1ABFB9B60069B25C /* ViewController.swift */; };
 		5147047F1ABFB9B60069B25C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5147047D1ABFB9B60069B25C /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		511B92D21AD54EBE0027087D /* VDLLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLLayer.swift; sourceTree = "<group>"; };
 		514704741ABFB9B60069B25C /* Voidology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voidology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		514704781ABFB9B60069B25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		514704791ABFB9B60069B25C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				514704791ABFB9B60069B25C /* AppDelegate.swift */,
 				5147047B1ABFB9B60069B25C /* ViewController.swift */,
 				515A28B21ABFBAC0009588DB /* MainScene.swift */,
+				511B92D21AD54EBE0027087D /* VDLLayer.swift */,
 				51E991D71AD254C100C3887F /* VDLUserInputManager.swift */,
 				514EAEFC1AD2579D00C88DF9 /* VDLObjectGenerator.swift */,
 				5147047D1ABFB9B60069B25C /* Main.storyboard */,
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				511B92D31AD54EBE0027087D /* VDLLayer.swift in Sources */,
 				515A28B31ABFBAC0009588DB /* MainScene.swift in Sources */,
 				51E991D81AD254C100C3887F /* VDLUserInputManager.swift in Sources */,
 				5147047C1ABFB9B60069B25C /* ViewController.swift in Sources */,

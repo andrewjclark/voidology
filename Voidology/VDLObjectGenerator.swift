@@ -39,7 +39,7 @@ public class VDLObjectGenerator {
         
         let newSize = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
         
-        var star = SKSpriteNode(color: UIColor.yellowColor(), size: CGSizeMake(newSize * 5, newSize * 5))
+        var star = SKSpriteNode(color: UIColor.yellowColor(), size: CGSizeMake(newSize * 5 + 1, newSize * 5 + 1))
         
         return star
     }
