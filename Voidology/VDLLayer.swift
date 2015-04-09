@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 protocol VDLLayerDelegate {
-    // Delegate methods required
+    // Delegate methods required for the automatic creation of new transitory objects.
     func transitoryObjectRatio(depth: UInt, rect: CGRect) -> CGFloat
     func newTransitoryObject(depth: UInt, position: CGPoint) -> SKSpriteNode
 }
@@ -167,6 +167,7 @@ public class VDLLayer: SKNode {
     }
     
     public func addTransitoryChild(node: SKSpriteNode) {
+        // Convenient method to add a custom transitory object - things like weapons or temporary effects could use this.
         self.addChild(node)
         transitoryObjects.insert(node)
     }
@@ -176,12 +177,10 @@ public class VDLLayer: SKNode {
     }
     
     func nodeFromRect(rect: CGRect, color: UIColor) -> SKSpriteNode {
-        
         let newNode = SKSpriteNode(color: color.colorWithAlphaComponent(0.25), size: CGSizeMake(rect.width, rect.height))
         newNode.position.x = rect.origin.x + rect.width / 2
         newNode.position.y = rect.origin.y + rect.height / 2
         return newNode
-        
     }
 
 }
