@@ -14,13 +14,13 @@ public class VDLObjectGenerator {
     public func asteroid() -> SKSpriteNode {
         
         let newSize = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
-        let asteroid = SKSpriteNode(color: UIColor.grayColor(), size: CGSizeMake(newSize * 25 + 5, newSize * 25 + 5))
+        let asteroid = SKSpriteNode(color: UIColor.lightGrayColor(), size: CGSizeMake(newSize * 25 + 5, newSize * 25 + 5))
         
         let newRotation = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
         
         asteroid.zRotation = newRotation * 3.14 * 2
         asteroid.physicsBody = SKPhysicsBody(rectangleOfSize: asteroid.size)
-        asteroid.physicsBody?.mass = 2
+        asteroid.physicsBody?.density = 100
         
         return asteroid
     }
@@ -39,7 +39,7 @@ public class VDLObjectGenerator {
         
         let newSize = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
         
-        var star = SKSpriteNode(color: UIColor.yellowColor(), size: CGSizeMake(newSize * 5 + 1, newSize * 5 + 1))
+        var star = SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(newSize * 2 + 1, newSize * 2 + 1))
         
         return star
     }
@@ -52,6 +52,17 @@ public class VDLObjectGenerator {
         
         return CGPointMake(rect.origin.x + positionX, rect.origin.y + positionY)
     }
+    
+    public func nodeFromRect(rect: CGRect, color: UIColor) -> SKSpriteNode {
+        
+        let newNode = SKSpriteNode(color: color.colorWithAlphaComponent(0.25), size: CGSizeMake(rect.width, rect.height))
+        newNode.position.x = rect.origin.x + rect.width / 2
+        newNode.position.y = rect.origin.y + rect.height / 2
+        return newNode
+        
+    }
+    
+    
     
     
     

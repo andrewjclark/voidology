@@ -34,11 +34,15 @@ class ViewController: UIViewController {
         
         mainScene = MainScene(size: view.bounds.size)
         
-        let skView = self.view as SKView!
+        let skView = self.view as! SKView!
         
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.presentScene(mainScene)
+        
+        mainScene.backgroundColor = UIColor.clearColor()
+//        skView.backgroundColor = UIColor.clearColor()
+//        self.view.backgroundColor
         
         // Hide all the buttons
         self.setButton(leftButton, visible: false)
@@ -89,7 +93,7 @@ class ViewController: UIViewController {
     
     func setButton(sender: UIButton, visible: Bool) {
         if(visible) {
-            sender.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.10)
+            sender.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
         } else {
             sender.backgroundColor = UIColor.clearColor()
         }
