@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		511B92D31AD54EBE0027087D /* VDLLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511B92D21AD54EBE0027087D /* VDLLayer.swift */; };
+		514297C01ADA32530005911D /* VoidShip03-TopLayer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 514297BF1ADA32530005911D /* VoidShip03-TopLayer@2x.png */; };
 		5147047A1ABFB9B60069B25C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514704791ABFB9B60069B25C /* AppDelegate.swift */; };
 		5147047C1ABFB9B60069B25C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5147047B1ABFB9B60069B25C /* ViewController.swift */; };
 		5147047F1ABFB9B60069B25C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5147047D1ABFB9B60069B25C /* Main.storyboard */; };
@@ -18,6 +19,11 @@
 		514EAEFD1AD2579D00C88DF9 /* VDLObjectGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EAEFC1AD2579D00C88DF9 /* VDLObjectGenerator.swift */; };
 		515A28B31ABFBAC0009588DB /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515A28B21ABFBAC0009588DB /* MainScene.swift */; };
 		515A28B51ABFBCD2009588DB /* Ship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 515A28B41ABFBCD2009588DB /* Ship@2x.png */; };
+		519EEA2D1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 519EEA2C1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png */; };
+		51CD066F1ADA1B75008AB116 /* VoidShip03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */; };
+		51CD06711ADA1C18008AB116 /* RocketEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 51CD06701ADA1C18008AB116 /* RocketEmitter.sks */; };
+		51CD06731ADA1EE4008AB116 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CD06721ADA1EE4008AB116 /* spark.png */; };
+		51CD06751ADA262D008AB116 /* VoidShip03_Exhaust@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CD06741ADA262D008AB116 /* VoidShip03_Exhaust@2x.png */; };
 		51E991D81AD254C100C3887F /* VDLUserInputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E991D71AD254C100C3887F /* VDLUserInputManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		511B92D21AD54EBE0027087D /* VDLLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLLayer.swift; sourceTree = "<group>"; };
+		514297BF1ADA32530005911D /* VoidShip03-TopLayer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03-TopLayer@2x.png"; sourceTree = "<group>"; };
 		514704741ABFB9B60069B25C /* Voidology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voidology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		514704781ABFB9B60069B25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		514704791ABFB9B60069B25C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +54,11 @@
 		514EAEFC1AD2579D00C88DF9 /* VDLObjectGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLObjectGenerator.swift; sourceTree = "<group>"; };
 		515A28B21ABFBAC0009588DB /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		515A28B41ABFBCD2009588DB /* Ship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship@2x.png"; sourceTree = "<group>"; };
+		519EEA2C1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03_CollisionBody@2x.png"; sourceTree = "<group>"; };
+		51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03@2x.png"; sourceTree = "<group>"; };
+		51CD06701ADA1C18008AB116 /* RocketEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RocketEmitter.sks; sourceTree = "<group>"; };
+		51CD06721ADA1EE4008AB116 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		51CD06741ADA262D008AB116 /* VoidShip03_Exhaust@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03_Exhaust@2x.png"; sourceTree = "<group>"; };
 		51E991D71AD254C100C3887F /* VDLUserInputManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLUserInputManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,10 +103,11 @@
 		514704761ABFB9B60069B25C /* Voidology */ = {
 			isa = PBXGroup;
 			children = (
-				515A28B41ABFBCD2009588DB /* Ship@2x.png */,
+				51E3017F1ADA168B003D1147 /* VoidShip */,
 				514704791ABFB9B60069B25C /* AppDelegate.swift */,
 				5147047B1ABFB9B60069B25C /* ViewController.swift */,
 				515A28B21ABFBAC0009588DB /* MainScene.swift */,
+				51CD06701ADA1C18008AB116 /* RocketEmitter.sks */,
 				511B92D21AD54EBE0027087D /* VDLLayer.swift */,
 				51E991D71AD254C100C3887F /* VDLUserInputManager.swift */,
 				514EAEFC1AD2579D00C88DF9 /* VDLObjectGenerator.swift */,
@@ -129,6 +142,19 @@
 				5147048E1ABFB9B60069B25C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51E3017F1ADA168B003D1147 /* VoidShip */ = {
+			isa = PBXGroup;
+			children = (
+				51CD06721ADA1EE4008AB116 /* spark.png */,
+				519EEA2C1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png */,
+				514297BF1ADA32530005911D /* VoidShip03-TopLayer@2x.png */,
+				51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */,
+				51CD06741ADA262D008AB116 /* VoidShip03_Exhaust@2x.png */,
+				515A28B41ABFBCD2009588DB /* Ship@2x.png */,
+			);
+			name = VoidShip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,9 +238,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				515A28B51ABFBCD2009588DB /* Ship@2x.png in Resources */,
+				514297C01ADA32530005911D /* VoidShip03-TopLayer@2x.png in Resources */,
+				51CD06731ADA1EE4008AB116 /* spark.png in Resources */,
+				51CD06751ADA262D008AB116 /* VoidShip03_Exhaust@2x.png in Resources */,
 				5147047F1ABFB9B60069B25C /* Main.storyboard in Resources */,
 				514704841ABFB9B60069B25C /* LaunchScreen.xib in Resources */,
+				51CD066F1ADA1B75008AB116 /* VoidShip03@2x.png in Resources */,
 				514704811ABFB9B60069B25C /* Images.xcassets in Resources */,
+				519EEA2D1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png in Resources */,
+				51CD06711ADA1C18008AB116 /* RocketEmitter.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

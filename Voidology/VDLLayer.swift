@@ -48,7 +48,7 @@ public class VDLLayer: SKNode {
     }
     
     func divisorForDepth(depth: UInt) -> CGFloat {
-        // The divisor for the given depth - this primarily determines how far away a layer "appears" to be.
+        // The divisor for the given depth - this determines how far away a layer "appears" to be.
         
         var depthFloat = 1 / ((CGFloat(depth) / 2) + 1)
         
@@ -62,7 +62,7 @@ public class VDLLayer: SKNode {
         // The scale of a VDLLayer is the same regardless of the "depth" of the layer because the depth is just a number that inhibits the movement of the the layer. They are all at the same scale and depth is "simulated".
         // As such the visible screen is the width and height of the view, and the center point is simply the inverse of the layer's current position.
         // Another by-product of this is that the cartesian plane between near and far layers is not very intuitive. Determining the "equivalent" between between 2 points (imagine trying to place a row of trees) is complex.
-        // For now we're doing it the simple way.
+        // Fortunately this does no matter much for making transitory particles so for now we're doing it the simple way.
         
         // Determine the visible bounds of this view as a CGRect
         let centerPosition = CGPointMake(self.position.x * -1, self.position.y * -1)
@@ -128,6 +128,9 @@ public class VDLLayer: SKNode {
                 
                 let ratio = theDelegate.transitoryObjectRatio(depth, rect: slice)
                 
+                // numberOfObjects defines, based on the ratio of objects per point for this slice, and the area of the slice, how many objects "ought" to be generated. If this number is > 1 then it is guaranteed to create a new object, but if less than 1 then the float "random" is generated and must be more than numberOfObjects
+                // This while loop continues until there are no much objects to be made, because numberOfObjects has been reduced below 0.
+                
                 var numberOfObjects = ratio * sliceArea
                 
                 while numberOfObjects > 0 {
@@ -156,7 +159,7 @@ public class VDLLayer: SKNode {
             let nodeSize = node.calculateAccumulatedFrame()
             
             if CGRectIntersectsRect(nodeSize, visibleRect) == false {
-                
+                // Transitory object is outside the visible range. Remove it.
                 node.removeFromParent()
                 transitoryObjects.remove(node)
             }
@@ -167,7 +170,7 @@ public class VDLLayer: SKNode {
     }
     
     public func addTransitoryChild(node: SKSpriteNode) {
-        // Convenient method to add a custom transitory object - things like weapons or temporary effects could use this.
+        // Add a custom node to the transitoryObjects set.
         self.addChild(node)
         transitoryObjects.insert(node)
     }

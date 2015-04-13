@@ -25,15 +25,48 @@ public class VDLObjectGenerator {
         return asteroid
     }
     
+    
+    public func rocketEmitter() -> SKEmitterNode? {
+        
+        if let fireEmitterPath = NSBundle.mainBundle().pathForResource("RocketEmitter", ofType: "sks") {
+            if let emitter = NSKeyedUnarchiver.unarchiveObjectWithFile(fireEmitterPath) as? SKEmitterNode {
+                emitter.particleBirthRate = 0
+                return emitter
+            }
+        }
+        
+        return nil
+    }
+    
+    
     public func player() -> SKSpriteNode {
         
-        let playerNode = SKSpriteNode(imageNamed: "Ship", normalMapped: false);
+        let playerNode = SKSpriteNode(imageNamed: "VoidShip03", normalMapped: false);
         
-        playerNode.physicsBody = SKPhysicsBody(texture: playerNode.texture, size:CGSizeMake(playerNode.size.width - 15, playerNode.size.height - 15))
-        playerNode.physicsBody?.mass = 1
+        let playerTexture = SKTexture(imageNamed: "VoidShip03_CollisionBody")
+        
+        playerNode.physicsBody = SKPhysicsBody(texture: playerTexture, size:CGSizeMake(playerNode.size.width - 10, playerNode.size.height - 10))
+        playerNode.physicsBody?.density = 50
         
         return playerNode
     }
+    
+    
+    public func playerTopLayer() -> SKSpriteNode {
+        
+        let playerNode = SKSpriteNode(imageNamed: "VoidShip03-TopLayer", normalMapped: false);
+        
+        return playerNode
+    }
+    
+    
+    public func playerExhaust() -> SKSpriteNode {
+        
+        let playerExhaust = SKSpriteNode(imageNamed: "VoidShip03_Exhaust", normalMapped: false);
+        
+        return playerExhaust
+    }
+    
     
     public func star() -> SKSpriteNode {
         
@@ -53,6 +86,7 @@ public class VDLObjectGenerator {
         return CGPointMake(rect.origin.x + positionX, rect.origin.y + positionY)
     }
     
+    
     public func nodeFromRect(rect: CGRect, color: UIColor) -> SKSpriteNode {
         
         let newNode = SKSpriteNode(color: color.colorWithAlphaComponent(0.25), size: CGSizeMake(rect.width, rect.height))
@@ -61,11 +95,5 @@ public class VDLObjectGenerator {
         return newNode
         
     }
-    
-    
-    
-    
-    
-    
     
 }

@@ -22,10 +22,8 @@ public enum PlayerButtonType {
 
 public class VDLUserInputManager {
     
-    var leftButton = false
-    var rightButton = false
-    var centerButton = false
-
+    var buttonDictionary = Dictionary<PlayerButtonType, NSDate>()
+    
     class var sharedInstance: VDLUserInputManager {
         // Setup the sharedInstance singleton.
         struct Static {
@@ -41,28 +39,32 @@ public class VDLUserInputManager {
     public func buttonEvent(button: PlayerButtonType, state: PlayerButtonState) {
         // Received a button event of PlayerButtonType with PlayerButtonState
         
-        // Right now I'm storing button press/unpress state in a few bools (defined above) but these should really be a Set of PlayerButtonType objects. I need Xcode beta 6.3 for that and it took ages to download so I'll do that later >.<
-        
         var pressType = true
         
-        if state == PlayerButtonState.Unpressed {
-            pressType = false
+        if state == .Unpressed {
+            buttonDictionary.removeValueForKey(button)
+        } else if state == .Pressed {
+            buttonDictionary[button] = NSDate()
+            
+            println(NSDate())
         }
-        
-        switch button {
-        case .RotateClockwise:
-            println("pressed clockwise`")
-            rightButton = pressType
+    }
+    
+    public func unpressAll() {
+        buttonDictionary.removeAll()
+    }
+    
+    public func milisecondsHolding(button: PlayerButtonType) -> Int {
+        if let buttonDate:NSDate = buttonDictionary[button] {
             
-        case .RotateAntiClockwise:
-            println("pressed anticlockwise")
-            leftButton = pressType
+            let elapsedTimeStamp = buttonDate.timeIntervalSinceNow
             
-        case .Boost:
-            println("pressed boost")
-            centerButton = pressType
-        default:
-            println("pressed unknown button")
+            let timeHeldInMilis: Int = Int(elapsedTimeStamp * -1000)
+            
+            return timeHeldInMilis
+            
+        } else {
+            return 0
         }
     }
     

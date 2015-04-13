@@ -18,9 +18,11 @@ public class MainScene: SKScene, VDLLayerDelegate {
     
     var playerNode = SKSpriteNode()
     
-    var asteroidSet: [SKSpriteNode] = [] // Rename this to disposableObjectSet
+    var playerTopLayer = SKSpriteNode()
     
-    var tempBool = false
+    var playerExhaust = SKSpriteNode()
+    
+    var emitterNode = SKEmitterNode()
     
     var previousVisibleFrame:CGRect?
     
@@ -34,10 +36,22 @@ public class MainScene: SKScene, VDLLayerDelegate {
         
         // Make Player
         playerNode = VDLObjectGenerator().player()
-        playerNode.anchorPoint = CGPointMake(0.5, 0.5)
         
-        // Add player to the nearest layer
+        // Make exhaust
+        playerExhaust = VDLObjectGenerator().playerExhaust()
+        playerNode.addChild(playerExhaust)
+        
         self.addNodeToWorld(playerNode, depth: 0)
+        
+        // Make rocket emitter
+        if let newEmitter = VDLObjectGenerator().rocketEmitter() {
+            emitterNode = newEmitter
+            self.addNodeToWorld(emitterNode, depth: 0)
+        }
+        
+        // Make Top Layer
+        playerTopLayer = VDLObjectGenerator().playerTopLayer()
+        self.addNodeToWorld(playerTopLayer, depth: 0)
         
         // Force some new layers
         for number in 1...10 {
@@ -52,11 +66,11 @@ public class MainScene: SKScene, VDLLayerDelegate {
     }
     
     func transitoryObjectRatio(depth: UInt, rect: CGRect) -> CGFloat {
-        // Protocol method for VDLLayer objects - defines the ratio of empty points to populated points in the VDLLayer
+        // Protocol method for VDLLayer objects - defines how many transitory objects should appear per point in the given rect.
         if depth > 0 {
-            return 1 / 10000
+            return 1 / 20000
         } else {
-            return 1 / 10000
+            return 1 / 40000
         }
     }
     
@@ -70,8 +84,7 @@ public class MainScene: SKScene, VDLLayerDelegate {
     }
     
     func layerWithDepth(depth: UInt) -> VDLLayer {
-        // Method that returns VDLLayer for the given depth, or creates one if necessary
-        
+        // Method that returns the VDLLayer for the given depth, or creates one if necessary
         if let layer = layerSet[depth] {
             return layer
         } else {
@@ -93,35 +106,35 @@ public class MainScene: SKScene, VDLLayerDelegate {
     }
     
     func updatePlayer(currentTime: NSTimeInterval) {
+        // This method applies changes to the playerNode and related nodes (such as the emitterNode to make the rocket trail).
         
-        // Apply friction forces to the playerNode
-        playerNode.physicsBody?.angularVelocity *= 0.8
-        playerNode.physicsBody?.velocity.dx *= 0.97
-        playerNode.physicsBody?.velocity.dy *= 0.97
+        // This should probably be seperated into a class of it's own but it's not clear to me how that would work in practice, particularly since there are 4 different player nodes each performing a different function.
         
-        // Fetch the button combinations and apply appropriate impulses to the player
+        // Fetch the amount of time each button has been held for and apply appropriate impulses to the player
         
-        let pressingLeft = VDLUserInputManager.sharedInstance.leftButton
-        let pressingRight = VDLUserInputManager.sharedInstance.rightButton
-        let pressingCenter = VDLUserInputManager.sharedInstance.centerButton
+        let pressingLeftMiliseconds = VDLUserInputManager.sharedInstance.milisecondsHolding(PlayerButtonType.RotateAntiClockwise)
+        let pressingRightMiliseconds = VDLUserInputManager.sharedInstance.milisecondsHolding(PlayerButtonType.RotateClockwise)
+        let pressingCenterMiliseconds = VDLUserInputManager.sharedInstance.milisecondsHolding(PlayerButtonType.Boost)
         
         let maxSpin:CGFloat = 5
+        
         let spinVelocity:CGFloat = 1 / 200
         
-        if (pressingLeft && pressingRight) || pressingCenter {
+        var playerIsBoosting = false
+        
+        if (pressingLeftMiliseconds > 50 && pressingRightMiliseconds > 50) || pressingCenterMiliseconds > 0 {
             // User is boosting
             let zRotation = Float(playerNode.zRotation)
-            let speedHypotenuse = Float(10)
+            let speedHypotenuse = Float(12)
             
             let opposite = CGFloat(sinf(zRotation) * speedHypotenuse)
             let adjacent = CGFloat(cosf(zRotation) * speedHypotenuse)
             
-            // This line further reduces the playerNode's angular velocity when the player is boosting
-            playerNode.physicsBody?.angularVelocity *= 0.9
-            
             playerNode.physicsBody?.applyImpulse(CGVectorMake(adjacent, opposite))
             
-        } else if pressingLeft {
+            playerIsBoosting = true
+            
+        } else if pressingLeftMiliseconds > 50 && pressingRightMiliseconds == 0 {
             // User is pressing left
             
             // Limit the speed with which they can spin anti-clockwise
@@ -129,7 +142,7 @@ public class MainScene: SKScene, VDLLayerDelegate {
                 playerNode.physicsBody?.applyAngularImpulse(spinVelocity)
             }
             
-        } else if pressingRight {
+        } else if pressingRightMiliseconds > 50 && pressingLeftMiliseconds == 0 {
             
             // Limit the speed with which they can spin clockwise
             if(playerNode.physicsBody?.angularVelocity > -maxSpin) {
@@ -137,13 +150,60 @@ public class MainScene: SKScene, VDLLayerDelegate {
             }
         }
         
+        // Apply drag to playerNode
+        
+        playerNode.physicsBody?.velocity.dx *= 0.98
+        playerNode.physicsBody?.velocity.dy *= 0.98
+        
+        // Set emitterNode's rotation.
+        
+        emitterNode.emissionAngle = playerNode.zRotation + CGFloat(M_PI)
+        
+        // Set emitterNode's position. This bit of trigonometry offsets the emitter so it is closer to the "exhaust".
+        let zRotation = Float(playerNode.zRotation)
+        let speedHypotenuse = Float(5)
+        let opposite = CGFloat(sinf(zRotation) * speedHypotenuse)
+        let adjacent = CGFloat(cosf(zRotation) * speedHypotenuse)
+        emitterNode.particlePosition = CGPointMake(playerNode.position.x - adjacent, playerNode.position.y - opposite)
+        
+        if playerIsBoosting {
+            // Reduce the players angular velocity
+            playerNode.physicsBody?.angularVelocity *= 0.8
+            
+            // The player is boosting so we need to start generating particles.
+            emitterNode.particleBirthRate += 20
+            
+            if emitterNode.particleBirthRate > 600 {
+                emitterNode.particleBirthRate = 600
+            }
+            
+            // Make the playerExhaust node more visible.
+            if playerExhaust.alpha < 1.5 {
+                playerExhaust.alpha += 0.2
+            }
+            
+        } else {
+            // Reduce the players angular velocity
+            playerNode.physicsBody?.angularVelocity *= 0.9
+            
+            // Player is not boosting so decrease the particle birth rate and make the playerExhaust less visible.
+            emitterNode.particleBirthRate *= 0.8
+            
+            if playerExhaust.alpha > 0 {
+                playerExhaust.alpha -= 0.1
+            }
+        }
     }
     
     public override func didSimulatePhysics() {
+        
+        // Position the playerTopLayer node to match playerNode.
+        playerTopLayer.position = playerNode.position
+        playerTopLayer.zRotation = playerNode.zRotation
+        
         // Center the view on the playerNode
         self.centerOnNode(playerNode)
     }
-    
     
     public func centerOnNode(node: SKNode) {
         // Center's each VDLLayer on the provided node given the current view.
