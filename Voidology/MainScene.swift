@@ -31,8 +31,8 @@ public class MainScene: SKScene, VDLLayerDelegate {
     override public func didMoveToView(view: SKView) {
         
         // Physics World Properties
-        self.physicsWorld.gravity = CGVectorMake(0.0, 0.0);
-        self.anchorPoint = CGPointMake (0.5,0.5);
+        physicsWorld.gravity = CGVectorMake(0.0, 0.0);
+        anchorPoint = CGPointMake (0.5,0.5);
         
         // Make Player
         playerNode = VDLObjectGenerator().player()
@@ -44,18 +44,21 @@ public class MainScene: SKScene, VDLLayerDelegate {
         self.addNodeToWorld(playerNode, depth: 0)
         
         // Make rocket emitter
+        
         if let newEmitter = VDLObjectGenerator().rocketEmitter() {
             emitterNode = newEmitter
-            self.addNodeToWorld(emitterNode, depth: 0)
+            emitterNode.particleBirthRate = 0
+            addNodeToWorld(emitterNode, depth: 0)
         }
+        
         
         // Make Top Layer
         playerTopLayer = VDLObjectGenerator().playerTopLayer()
-        self.addNodeToWorld(playerTopLayer, depth: 0)
+        addNodeToWorld(playerTopLayer, depth: 0)
         
         // Force some new layers
         for number in 1...10 {
-            self.layerWithDepth(UInt(number))
+            layerWithDepth(UInt(number))
         }
     }
     
@@ -70,7 +73,8 @@ public class MainScene: SKScene, VDLLayerDelegate {
         if depth > 0 {
             return 1 / 20000
         } else {
-            return 1 / 40000
+//            return 0
+            return 1 / 80000
         }
     }
     
@@ -118,7 +122,7 @@ public class MainScene: SKScene, VDLLayerDelegate {
         
         let maxSpin:CGFloat = 5
         
-        let spinVelocity:CGFloat = 1 / 200
+        let spinVelocity:CGFloat = 1 / 250
         
         var playerIsBoosting = false
         
@@ -161,7 +165,8 @@ public class MainScene: SKScene, VDLLayerDelegate {
         
         // Set emitterNode's position. This bit of trigonometry offsets the emitter so it is closer to the "exhaust".
         let zRotation = Float(playerNode.zRotation)
-        let speedHypotenuse = Float(5)
+        let speedHypotenuse = Float(8
+        )
         let opposite = CGFloat(sinf(zRotation) * speedHypotenuse)
         let adjacent = CGFloat(cosf(zRotation) * speedHypotenuse)
         emitterNode.particlePosition = CGPointMake(playerNode.position.x - adjacent, playerNode.position.y - opposite)
@@ -173,8 +178,8 @@ public class MainScene: SKScene, VDLLayerDelegate {
             // The player is boosting so we need to start generating particles.
             emitterNode.particleBirthRate += 20
             
-            if emitterNode.particleBirthRate > 600 {
-                emitterNode.particleBirthRate = 600
+            if emitterNode.particleBirthRate > 1000 {
+                emitterNode.particleBirthRate = 1000
             }
             
             // Make the playerExhaust node more visible.

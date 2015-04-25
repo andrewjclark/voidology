@@ -20,6 +20,7 @@
 		515A28B31ABFBAC0009588DB /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515A28B21ABFBAC0009588DB /* MainScene.swift */; };
 		515A28B51ABFBCD2009588DB /* Ship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 515A28B41ABFBCD2009588DB /* Ship@2x.png */; };
 		519EEA2D1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 519EEA2C1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png */; };
+		519F97681AE8F0CE008E6FB6 /* spark_line-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 519F97671AE8F0CE008E6FB6 /* spark_line-1.png */; };
 		51CD066F1ADA1B75008AB116 /* VoidShip03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */; };
 		51CD06711ADA1C18008AB116 /* RocketEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 51CD06701ADA1C18008AB116 /* RocketEmitter.sks */; };
 		51CD06731ADA1EE4008AB116 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CD06721ADA1EE4008AB116 /* spark.png */; };
@@ -55,6 +56,7 @@
 		515A28B21ABFBAC0009588DB /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		515A28B41ABFBCD2009588DB /* Ship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship@2x.png"; sourceTree = "<group>"; };
 		519EEA2C1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03_CollisionBody@2x.png"; sourceTree = "<group>"; };
+		519F97671AE8F0CE008E6FB6 /* spark_line-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spark_line-1.png"; sourceTree = "<group>"; };
 		51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03@2x.png"; sourceTree = "<group>"; };
 		51CD06701ADA1C18008AB116 /* RocketEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RocketEmitter.sks; sourceTree = "<group>"; };
 		51CD06721ADA1EE4008AB116 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				514297BF1ADA32530005911D /* VoidShip03-TopLayer@2x.png */,
 				51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */,
 				51CD06741ADA262D008AB116 /* VoidShip03_Exhaust@2x.png */,
+				519F97671AE8F0CE008E6FB6 /* spark_line-1.png */,
 				515A28B41ABFBCD2009588DB /* Ship@2x.png */,
 			);
 			name = VoidShip;
@@ -246,6 +249,7 @@
 				51CD066F1ADA1B75008AB116 /* VoidShip03@2x.png in Resources */,
 				514704811ABFB9B60069B25C /* Images.xcassets in Resources */,
 				519EEA2D1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png in Resources */,
+				519F97681AE8F0CE008E6FB6 /* spark_line-1.png in Resources */,
 				51CD06711ADA1C18008AB116 /* RocketEmitter.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
