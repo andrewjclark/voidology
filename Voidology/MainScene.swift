@@ -14,7 +14,7 @@ enum objectCategory:UInt32 {
     case objectCategory = 2
 }
 
-public class MainScene: SKScene, VDLLayerDelegate {
+public class MainScene: SKScene {
     
     var playerNode = SKSpriteNode()
     
@@ -22,7 +22,7 @@ public class MainScene: SKScene, VDLLayerDelegate {
     
     var playerExhaust = SKSpriteNode()
     
-    var emitterNode = SKEmitterNode()
+    var emitterNode:SKEmitterNode?
     
     var previousVisibleFrame:CGRect?
     
@@ -43,15 +43,6 @@ public class MainScene: SKScene, VDLLayerDelegate {
         
         self.addNodeToWorld(playerNode, depth: 0)
         
-        // Make rocket emitter
-        
-        if let newEmitter = VDLObjectGenerator().rocketEmitter() {
-            emitterNode = newEmitter
-            emitterNode.particleBirthRate = 0
-            addNodeToWorld(emitterNode, depth: 0)
-        }
-        
-        
         // Make Top Layer
         playerTopLayer = VDLObjectGenerator().playerTopLayer()
         addNodeToWorld(playerTopLayer, depth: 0)
@@ -68,31 +59,12 @@ public class MainScene: SKScene, VDLLayerDelegate {
         layer.addChild(node)
     }
     
-    func transitoryObjectRatio(depth: UInt, rect: CGRect) -> CGFloat {
-        // Protocol method for VDLLayer objects - defines how many transitory objects should appear per point in the given rect.
-        if depth > 0 {
-            return 1 / 20000
-        } else {
-//            return 0
-            return 1 / 80000
-        }
-    }
-    
-    func newTransitoryObject(depth: UInt, position: CGPoint) -> SKSpriteNode {
-        // Procotol method for VDLLayer objects - returns an SKSpriteNode appropriate to the depth and position provided.
-        if depth > 0 {
-            return VDLObjectGenerator().star()
-        } else {
-            return VDLObjectGenerator().asteroid()
-        }
-    }
-    
     func layerWithDepth(depth: UInt) -> VDLLayer {
         // Method that returns the VDLLayer for the given depth, or creates one if necessary
         if let layer = layerSet[depth] {
             return layer
         } else {
-            var newLayer = VDLLayer(depth: depth, delegate: self)
+            var newLayer = VDLLayer(depth: depth, delegate: VDLWorldManager.sharedManager)
             newLayer.alpha = 1 - (CGFloat(depth) / 30)
             
             self.addChild(newLayer)
@@ -103,10 +75,8 @@ public class MainScene: SKScene, VDLLayerDelegate {
     }
     
     public override func update(currentTime: NSTimeInterval) {
-        
         // Update the playerNode
         self.updatePlayer(currentTime)
-        
     }
     
     func updatePlayer(currentTime: NSTimeInterval) {
@@ -155,32 +125,39 @@ public class MainScene: SKScene, VDLLayerDelegate {
         }
         
         // Apply drag to playerNode
-        
         playerNode.physicsBody?.velocity.dx *= 0.98
         playerNode.physicsBody?.velocity.dy *= 0.98
         
-        // Set emitterNode's rotation.
-        
-        emitterNode.emissionAngle = playerNode.zRotation + CGFloat(M_PI)
-        
-        // Set emitterNode's position. This bit of trigonometry offsets the emitter so it is closer to the "exhaust".
-        let zRotation = Float(playerNode.zRotation)
-        let speedHypotenuse = Float(8
-        )
-        let opposite = CGFloat(sinf(zRotation) * speedHypotenuse)
-        let adjacent = CGFloat(cosf(zRotation) * speedHypotenuse)
-        emitterNode.particlePosition = CGPointMake(playerNode.position.x - adjacent, playerNode.position.y - opposite)
-        
         if playerIsBoosting {
+            
+            if let emitter = emitterNode {
+                // Set emitterNode's rotation.
+                emitter.emissionAngle = playerNode.zRotation + CGFloat(M_PI)
+                
+                // Set emitterNode's position. This bit of trigonometry offsets the emitter so it is closer to the "exhaust".
+                let zRotation = Float(playerNode.zRotation)
+                let speedHypotenuse = Float(7)
+                let opposite = CGFloat(sinf(zRotation) * speedHypotenuse)
+                let adjacent = CGFloat(cosf(zRotation) * speedHypotenuse)
+                emitter.particlePosition = CGPointMake(playerNode.position.x - adjacent, playerNode.position.y - opposite)
+                emitter.particleBirthRate += 30
+                
+                // The player is boosting so we need to start generating particles.
+                if(emitter.particleBirthRate > 300) {
+                    emitter.particleBirthRate = 300
+                }
+                
+            } else {
+                // Make rocket emitter
+                if let newEmitter = VDLObjectGenerator().rocketEmitter() {
+                    newEmitter.particleBirthRate = 0
+                    emitterNode = newEmitter
+                    addNodeToWorld(newEmitter, depth: 0)
+                }
+            }
+            
             // Reduce the players angular velocity
             playerNode.physicsBody?.angularVelocity *= 0.8
-            
-            // The player is boosting so we need to start generating particles.
-            emitterNode.particleBirthRate += 20
-            
-            if emitterNode.particleBirthRate > 1000 {
-                emitterNode.particleBirthRate = 1000
-            }
             
             // Make the playerExhaust node more visible.
             if playerExhaust.alpha < 1.5 {
@@ -191,14 +168,17 @@ public class MainScene: SKScene, VDLLayerDelegate {
             // Reduce the players angular velocity
             playerNode.physicsBody?.angularVelocity *= 0.9
             
-            // Player is not boosting so decrease the particle birth rate and make the playerExhaust less visible.
-            emitterNode.particleBirthRate *= 0.8
+            if let emitter = emitterNode {
+                // Player is not boosting so decrease the particle birth rate and make the playerExhaust less visible.
+                emitter.particleBirthRate *= 0.8
+            }
             
             if playerExhaust.alpha > 0 {
                 playerExhaust.alpha -= 0.1
             }
         }
     }
+    
     
     public override func didSimulatePhysics() {
         
@@ -208,13 +188,27 @@ public class MainScene: SKScene, VDLLayerDelegate {
         
         // Center the view on the playerNode
         self.centerOnNode(playerNode)
+        
+        // Insert and delete objects from VDLWorldManager
+        
+        for newObject in VDLWorldManager.sharedManager.insertSpriteNodes() {
+            self.addNodeToWorld(newObject, depth: 0)
+        }
+        
+        for newObject in VDLWorldManager.sharedManager.deleteSpriteNodes() {
+            newObject.removeFromParent()
+        }
     }
+    
     
     public func centerOnNode(node: SKNode) {
         // Center's each VDLLayer on the provided node given the current view.
         for (depth, layer) in layerSet {
             layer.centerOnNode(node, view: self.view)
         }
+        
+        let focusPoint = CGPointMake(node.position.x, node.position.y)
+        VDLWorldManager.sharedManager.focusPoint(focusPoint)
     }
     
     
