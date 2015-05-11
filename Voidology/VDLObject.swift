@@ -29,6 +29,7 @@ public class VDLObject: NSObject, NSCoding {
     public var velocity = CGVector()
     public var size = CGSize()
     public var color = VDLObjectColor.Grey
+    public var friction = 0.1
     
     var internalSpriteNode:SKSpriteNode?
     
@@ -41,10 +42,6 @@ public class VDLObject: NSObject, NSCoding {
         if let node = internalSpriteNode {
             return node
         } else {
-            
-            
-            
-            
             
             var newColor = UIColor.grayColor()
             
@@ -70,6 +67,9 @@ public class VDLObject: NSObject, NSCoding {
             newNode.physicsBody = SKPhysicsBody(rectangleOfSize: size)
             newNode.physicsBody?.angularVelocity = CGFloat(angularVelocity)
             newNode.physicsBody?.velocity = velocity
+            newNode.physicsBody?.density = 0.01
+            newNode.physicsBody?.linearDamping = CGFloat(friction)
+            newNode.physicsBody?.angularDamping = CGFloat(friction)
             
             internalSpriteNode = newNode
             
@@ -81,6 +81,7 @@ public class VDLObject: NSObject, NSCoding {
         aCoder.encodeCGPoint(self.position, forKey: "position")
         aCoder.encodeFloat(self.zRotation, forKey: "zRotation")
         aCoder.encodeFloat(self.angularVelocity, forKey: "angularVelocity")
+        aCoder.encodeDouble(self.friction, forKey: "friction")
         aCoder.encodeCGVector(self.velocity, forKey: "velocity")
         
         aCoder.encodeCGSize(self.size, forKey: "size")
@@ -95,6 +96,7 @@ public class VDLObject: NSObject, NSCoding {
         self.size = aDecoder.decodeCGSizeForKey("size")
         self.angularVelocity = aDecoder.decodeFloatForKey("angularVelocity")
         self.velocity = aDecoder.decodeCGVectorForKey("velocity")
+        self.friction = aDecoder.decodeDoubleForKey("friction")
         
         let colorInt = aDecoder.decodeIntegerForKey("color")
         

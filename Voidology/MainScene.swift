@@ -28,6 +28,11 @@ public class MainScene: SKScene {
     
     var layerSet = Dictionary<UInt, VDLLayer>()
     
+    var previousTime: NSTimeInterval?
+    var previousTimeInt = 0
+    
+    var gameClock = NSTimeInterval()
+    
     override public func didMoveToView(view: SKView) {
         
         // Physics World Properties
@@ -51,13 +56,20 @@ public class MainScene: SKScene {
         for number in 1...10 {
             layerWithDepth(UInt(number))
         }
+        
+        // Load the gameclock from NSUserDefaults
+        gameClock = NSUserDefaults.standardUserDefaults().doubleForKey("gameClockInt")
+        
+        self.centerOnNode(playerNode)
     }
+    
     
     public func addNodeToWorld(node: SKNode, depth: UInt) {
         // Add the provided node to the appropriate VDLLayer
         var layer = self.layerWithDepth(depth)
         layer.addChild(node)
     }
+    
     
     func layerWithDepth(depth: UInt) -> VDLLayer {
         // Method that returns the VDLLayer for the given depth, or creates one if necessary
@@ -74,9 +86,29 @@ public class MainScene: SKScene {
         }
     }
     
+    
     public override func update(currentTime: NSTimeInterval) {
         // Update the playerNode
         self.updatePlayer(currentTime)
+        
+        // Update the game clock counter
+        
+        if let previous = previousTime {
+            
+            let timeDelta = currentTime - previous
+            previousTime = currentTime
+            gameClock += timeDelta
+            
+            if previousTimeInt != Int(currentTime) {
+                // Save gameClock
+                
+                NSUserDefaults.standardUserDefaults().setDouble(gameClock, forKey: "gameClockInt")
+                previousTimeInt = Int(currentTime)
+            }
+            
+        } else {
+            previousTime = currentTime
+        }
     }
     
     func updatePlayer(currentTime: NSTimeInterval) {
@@ -190,27 +222,29 @@ public class MainScene: SKScene {
         self.centerOnNode(playerNode)
         
         // Insert and delete objects from VDLWorldManager
-        
         for newObject in VDLWorldManager.sharedManager.insertSpriteNodes() {
-            self.addNodeToWorld(newObject, depth: 0)
+            if newObject.parent == nil {
+                self.addNodeToWorld(newObject, depth: 0)
+            }
         }
         
         for newObject in VDLWorldManager.sharedManager.deleteSpriteNodes() {
-            newObject.removeFromParent()
+            if newObject.parent != nil {
+                newObject.removeFromParent()
+            }
         }
     }
     
     
     public func centerOnNode(node: SKNode) {
+        
+        let focalPoint = CGPointMake(node.position.x, node.position.y)
+        VDLWorldManager.sharedManager.focusOnPoint(focalPoint, currentTime: gameClock)
+        
         // Center's each VDLLayer on the provided node given the current view.
         for (depth, layer) in layerSet {
             layer.centerOnNode(node, view: self.view)
         }
-        
-        let focusPoint = CGPointMake(node.position.x, node.position.y)
-        VDLWorldManager.sharedManager.focusPoint(focusPoint)
     }
     
-    
-   
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		511B92D31AD54EBE0027087D /* VDLLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511B92D21AD54EBE0027087D /* VDLLayer.swift */; };
+		513D89201AFCE10E006698FD /* VDLQuadrantGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D891F1AFCE10E006698FD /* VDLQuadrantGenerator.swift */; };
 		514297C01ADA32530005911D /* VoidShip03-TopLayer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 514297BF1ADA32530005911D /* VoidShip03-TopLayer@2x.png */; };
 		5147047A1ABFB9B60069B25C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514704791ABFB9B60069B25C /* AppDelegate.swift */; };
 		5147047C1ABFB9B60069B25C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5147047B1ABFB9B60069B25C /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		511B92D21AD54EBE0027087D /* VDLLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLLayer.swift; sourceTree = "<group>"; };
+		513D891F1AFCE10E006698FD /* VDLQuadrantGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLQuadrantGenerator.swift; sourceTree = "<group>"; };
 		514297BF1ADA32530005911D /* VoidShip03-TopLayer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03-TopLayer@2x.png"; sourceTree = "<group>"; };
 		514704741ABFB9B60069B25C /* Voidology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voidology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		514704781ABFB9B60069B25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				51CD06701ADA1C18008AB116 /* RocketEmitter.sks */,
 				516CDF801AEC4F85000BC513 /* VDLWorldManager.swift */,
 				51CEFBDD1AEFC1420012FAFA /* VDLQuadrant.swift */,
+				513D891F1AFCE10E006698FD /* VDLQuadrantGenerator.swift */,
 				51889EB61AF36BAE0076AF5F /* VDLObject.swift */,
 				511B92D21AD54EBE0027087D /* VDLLayer.swift */,
 				51E991D71AD254C100C3887F /* VDLUserInputManager.swift */,
@@ -281,6 +284,7 @@
 				516CDF811AEC4F85000BC513 /* VDLWorldManager.swift in Sources */,
 				511B92D31AD54EBE0027087D /* VDLLayer.swift in Sources */,
 				51CEFBDE1AEFC1420012FAFA /* VDLQuadrant.swift in Sources */,
+				513D89201AFCE10E006698FD /* VDLQuadrantGenerator.swift in Sources */,
 				515A28B31ABFBAC0009588DB /* MainScene.swift in Sources */,
 				51E991D81AD254C100C3887F /* VDLUserInputManager.swift in Sources */,
 				5147047C1ABFB9B60069B25C /* ViewController.swift in Sources */,

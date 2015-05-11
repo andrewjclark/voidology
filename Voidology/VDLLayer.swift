@@ -12,7 +12,7 @@ import SpriteKit
 protocol VDLLayerDelegate {
     // Delegate methods required for the automatic creation of new transitory objects.
     func transitoryObjectRatio(depth: UInt, rect: CGRect) -> CGFloat
-    func newTransitoryObject(depth: UInt, position: CGPoint) -> SKSpriteNode
+    func newTransitoryObject(depth: UInt, position: CGPoint) -> SKSpriteNode?
 }
 
 public class VDLLayer: SKNode {
@@ -45,6 +45,10 @@ public class VDLLayer: SKNode {
         if let view = view {
             self.updateTransitoryObjectsForView(view)
         }
+    }
+    
+    public func nullifyPreviousVisibleRect() {
+        previousVisibleRect = nil
     }
     
     func divisorForDepth(depth: UInt) -> CGFloat {
@@ -140,12 +144,13 @@ public class VDLLayer: SKNode {
                     if random < numberOfObjects {
                         let newPosition = VDLObjectGenerator().randomPositionInRect(slice)
                         
-                        let newObject = theDelegate.newTransitoryObject(self.depth, position: newPosition)
+                        if let newObject = theDelegate.newTransitoryObject(self.depth, position: newPosition) {
+                            newObject.position = newPosition
+                            
+                            self.addChild(newObject)
+                            transitoryObjects.insert(newObject)
+                        }
                         
-                        newObject.position = newPosition
-                        
-                        self.addChild(newObject)
-                        transitoryObjects.insert(newObject)
                     }
                     
                     numberOfObjects--
