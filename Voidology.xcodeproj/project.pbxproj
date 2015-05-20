@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		511B92D31AD54EBE0027087D /* VDLLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511B92D21AD54EBE0027087D /* VDLLayer.swift */; };
+		5120EFB61B0852F700390F2E /* VoidShip03_Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5120EFB51B0852F700390F2E /* VoidShip03_Normal@2x.png */; };
+		5120EFB81B08559700390F2E /* VoidShip03_Flat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5120EFB71B08559700390F2E /* VoidShip03_Flat@2x.png */; };
 		513D89201AFCE10E006698FD /* VDLQuadrantGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D891F1AFCE10E006698FD /* VDLQuadrantGenerator.swift */; };
 		514297C01ADA32530005911D /* VoidShip03-TopLayer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 514297BF1ADA32530005911D /* VoidShip03-TopLayer@2x.png */; };
 		5147047A1ABFB9B60069B25C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514704791ABFB9B60069B25C /* AppDelegate.swift */; };
@@ -24,6 +26,10 @@
 		51889EB71AF36BAE0076AF5F /* VDLObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51889EB61AF36BAE0076AF5F /* VDLObject.swift */; };
 		519EEA2D1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 519EEA2C1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png */; };
 		519F97681AE8F0CE008E6FB6 /* spark_line-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 519F97671AE8F0CE008E6FB6 /* spark_line-1.png */; };
+		51B7914B1B09E34E00F3D866 /* CubeTest2_Normal@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B791491B09E34E00F3D866 /* CubeTest2_Normal@1x.png */; };
+		51B7914C1B09E34E00F3D866 /* CubeTest2@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B7914A1B09E34E00F3D866 /* CubeTest2@1x.png */; };
+		51BD07B61B09B1A400947BD0 /* Cube_Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BD07B41B09B1A400947BD0 /* Cube_Normal@2x.png */; };
+		51BD07B71B09B1A400947BD0 /* Cube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BD07B51B09B1A400947BD0 /* Cube@2x.png */; };
 		51CD066F1ADA1B75008AB116 /* VoidShip03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */; };
 		51CD06711ADA1C18008AB116 /* RocketEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 51CD06701ADA1C18008AB116 /* RocketEmitter.sks */; };
 		51CD06731ADA1EE4008AB116 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CD06721ADA1EE4008AB116 /* spark.png */; };
@@ -44,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		511B92D21AD54EBE0027087D /* VDLLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLLayer.swift; sourceTree = "<group>"; };
+		5120EFB51B0852F700390F2E /* VoidShip03_Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03_Normal@2x.png"; sourceTree = "<group>"; };
+		5120EFB71B08559700390F2E /* VoidShip03_Flat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03_Flat@2x.png"; sourceTree = "<group>"; };
 		513D891F1AFCE10E006698FD /* VDLQuadrantGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLQuadrantGenerator.swift; sourceTree = "<group>"; };
 		514297BF1ADA32530005911D /* VoidShip03-TopLayer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03-TopLayer@2x.png"; sourceTree = "<group>"; };
 		514704741ABFB9B60069B25C /* Voidology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voidology.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +72,10 @@
 		51889EB61AF36BAE0076AF5F /* VDLObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLObject.swift; sourceTree = "<group>"; };
 		519EEA2C1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03_CollisionBody@2x.png"; sourceTree = "<group>"; };
 		519F97671AE8F0CE008E6FB6 /* spark_line-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spark_line-1.png"; sourceTree = "<group>"; };
+		51B791491B09E34E00F3D866 /* CubeTest2_Normal@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CubeTest2_Normal@1x.png"; sourceTree = "<group>"; };
+		51B7914A1B09E34E00F3D866 /* CubeTest2@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CubeTest2@1x.png"; sourceTree = "<group>"; };
+		51BD07B41B09B1A400947BD0 /* Cube_Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cube_Normal@2x.png"; sourceTree = "<group>"; };
+		51BD07B51B09B1A400947BD0 /* Cube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cube@2x.png"; sourceTree = "<group>"; };
 		51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03@2x.png"; sourceTree = "<group>"; };
 		51CD06701ADA1C18008AB116 /* RocketEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RocketEmitter.sks; sourceTree = "<group>"; };
 		51CD06721ADA1EE4008AB116 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -161,12 +173,18 @@
 		51E3017F1ADA168B003D1147 /* VoidShip */ = {
 			isa = PBXGroup;
 			children = (
+				5120EFB51B0852F700390F2E /* VoidShip03_Normal@2x.png */,
+				51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */,
+				5120EFB71B08559700390F2E /* VoidShip03_Flat@2x.png */,
 				51CD06721ADA1EE4008AB116 /* spark.png */,
 				519EEA2C1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png */,
 				514297BF1ADA32530005911D /* VoidShip03-TopLayer@2x.png */,
-				51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */,
 				51CD06741ADA262D008AB116 /* VoidShip03_Exhaust@2x.png */,
+				51B791491B09E34E00F3D866 /* CubeTest2_Normal@1x.png */,
+				51B7914A1B09E34E00F3D866 /* CubeTest2@1x.png */,
 				519F97671AE8F0CE008E6FB6 /* spark_line-1.png */,
+				51BD07B41B09B1A400947BD0 /* Cube_Normal@2x.png */,
+				51BD07B51B09B1A400947BD0 /* Cube@2x.png */,
 				515A28B41ABFBCD2009588DB /* Ship@2x.png */,
 			);
 			name = VoidShip;
@@ -221,6 +239,7 @@
 				TargetAttributes = {
 					514704731ABFB9B60069B25C = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = C583RN882K;
 					};
 					514704881ABFB9B60069B25C = {
 						CreatedOnToolsVersion = 6.2;
@@ -252,14 +271,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51BD07B71B09B1A400947BD0 /* Cube@2x.png in Resources */,
 				515A28B51ABFBCD2009588DB /* Ship@2x.png in Resources */,
 				514297C01ADA32530005911D /* VoidShip03-TopLayer@2x.png in Resources */,
 				51CD06731ADA1EE4008AB116 /* spark.png in Resources */,
 				51CD06751ADA262D008AB116 /* VoidShip03_Exhaust@2x.png in Resources */,
 				5147047F1ABFB9B60069B25C /* Main.storyboard in Resources */,
 				514704841ABFB9B60069B25C /* LaunchScreen.xib in Resources */,
+				5120EFB61B0852F700390F2E /* VoidShip03_Normal@2x.png in Resources */,
+				5120EFB81B08559700390F2E /* VoidShip03_Flat@2x.png in Resources */,
+				51BD07B61B09B1A400947BD0 /* Cube_Normal@2x.png in Resources */,
+				51B7914C1B09E34E00F3D866 /* CubeTest2@1x.png in Resources */,
 				51CD066F1ADA1B75008AB116 /* VoidShip03@2x.png in Resources */,
 				514704811ABFB9B60069B25C /* Images.xcassets in Resources */,
+				51B7914B1B09E34E00F3D866 /* CubeTest2_Normal@1x.png in Resources */,
 				519EEA2D1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png in Resources */,
 				519F97681AE8F0CE008E6FB6 /* spark_line-1.png in Resources */,
 				51CD06711ADA1C18008AB116 /* RocketEmitter.sks in Resources */,
@@ -412,9 +437,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = Voidology/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6b6f37b1-f148-48ca-82df-7beb7d6f55ec";
 			};
 			name = Debug;
 		};
@@ -422,9 +449,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = Voidology/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6b6f37b1-f148-48ca-82df-7beb7d6f55ec";
 			};
 			name = Release;
 		};

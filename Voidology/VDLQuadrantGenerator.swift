@@ -21,14 +21,28 @@ public class VDLQuadrantGenerator {
         
         let color = self.randRange(1, upper: 4)
         
-        for index in 0...100 {
+        for index in 0...80 {
             // Generate new node in a background process
             
             let newNode = VDLObject.new()
             
             let newNodePosition = VDLObjectGenerator().randomPositionInRect(rect)
             
+            let newNodeRotation = (Float(arc4random()) / Float(UINT32_MAX)) * 3.14 * 2
+            
             newNode.position = newNodePosition
+            
+            let frontLayer = Int(randRange(0, upper: 2))
+            
+            if frontLayer == 0 {
+                newNode.depth = Int(randRange(2, upper: 9))
+            } else {
+                newNode.depth = 0
+            }
+            
+            
+            
+            newNode.zRotation = newNodeRotation
             
             switch color {
             case 1:
@@ -45,9 +59,9 @@ public class VDLQuadrantGenerator {
             
             
             var width = arc4random_uniform(20)
-            var height = arc4random_uniform(20)
+            var height = width
             
-            newNode.size = CGSizeMake(CGFloat(width) + 5, CGFloat(height) + 5)
+            newNode.size = CGSizeMake(CGFloat(width) * 3 + 20, CGFloat(height) * 3 + 20)
             
             var spin = arc4random_uniform(11)
             

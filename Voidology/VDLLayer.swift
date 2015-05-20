@@ -30,6 +30,8 @@ public class VDLLayer: SKNode {
         self.init()
         self.depth = depth
         self.zPosition = CGFloat(depth) * -1
+        setScale(divisorForDepth(depth))
+        
         self.delegate = delegate
     }
     
@@ -43,7 +45,7 @@ public class VDLLayer: SKNode {
         
         // We we have received a view then update the transitory objects given this view size
         if let view = view {
-            self.updateTransitoryObjectsForView(view)
+//            self.updateTransitoryObjectsForView(view)
         }
     }
     
@@ -54,9 +56,7 @@ public class VDLLayer: SKNode {
     func divisorForDepth(depth: UInt) -> CGFloat {
         // The divisor for the given depth - this determines how far away a layer "appears" to be.
         
-        var depthFloat = 1 / ((CGFloat(depth) / 2) + 1)
-        
-        depthFloat = pow(depthFloat, 1.5)
+        var depthFloat = 1 / ((CGFloat(depth) / 3) + 1)
         
         return depthFloat
     }

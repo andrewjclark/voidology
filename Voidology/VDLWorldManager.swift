@@ -18,6 +18,8 @@ public class VDLWorldManager: VDLLayerDelegate {
     var quadrantIndex = Dictionary<String, VDLQuadrant>()
     var mainPoint = CGPoint()
     
+    var tempCount = 0
+    
     private var newNodesQueue = Set<SKSpriteNode>()
     private var deletedNodesQueue = Set<SKSpriteNode>()
     
@@ -32,29 +34,71 @@ public class VDLWorldManager: VDLLayerDelegate {
         return Static.instance!
     }
     
-    public func focusOnPoint(point: CGPoint, currentTime: NSTimeInterval) {
+    func visibleRectForDepth(depth: UInt, point: CGPoint, view: UIView) -> CGRect {
+        
+        // Determine the viewRect that we can see in the furthest layer.
+        let divisor = VDLLayer().divisorForDepth(9)
+        
+        // In this case divisor = 0.25
+        let viewWidth = view.frame.width / divisor
+        let viewHeight = view.frame.height / divisor
+        
+        let deepSize = CGSize(width: viewWidth, height: viewHeight)
+        
+        let deepView = CGRect(x: point.x - viewWidth / 2, y: point.y - viewHeight / 2, width: viewWidth, height: viewHeight)
+        
+        if tempCount == 0 {
+            let rectNode = SKSpriteNode(color: UIColor.greenColor().colorWithAlphaComponent(0.5), size: deepSize)
+            rectNode.position = point
+            rectNode.zPosition = 9
+//            self.newNodesQueue.insert(rectNode)
+        }
+        
+        tempCount += 1
+        
+        
+        return deepView
+        
+    }
+    
+    
+    public func focusOnPoint(point: CGPoint, currentTime: NSTimeInterval, view: UIView) {
         
         // What quadrant are we in?
         
         mainPoint = point
         
-        let newQuadrantHash = quadrantHashForPoint(point)
+        let visibleArea = visibleRectForDepth(9, point: point, view: view)
         
-        if newQuadrantHash != currentQuadrantHash {
-            
-            // We have changed quadrants!
-            currentQuadrantHash = newQuadrantHash
-            
-            let currentQuadrantCoordinates = quadrantCoordinatesForPoint(point)
-            
-            let proximalQuadrants = proximalQuadrantsForPosition(currentQuadrantCoordinates.x, y: currentQuadrantCoordinates.y)
-            
-            // Compare these proximalQuadrants to the quadrantIndex to see if any quadrants need creating.
-            
-            
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+        // Top left quadrant
+        
+        let topLeftPoint = CGPoint(x: CGRectGetMinX(visibleArea), y: CGRectGetMaxY(visibleArea))
+        
+        let bottomRightPoint = CGPoint(x: CGRectGetMaxX(visibleArea), y: CGRectGetMinY(visibleArea))
+        
+        // Points
+        
+        let left = quadrantCoordinatesForPoint(topLeftPoint).x
+        let top = quadrantCoordinatesForPoint(topLeftPoint).y
+        let right = quadrantCoordinatesForPoint(bottomRightPoint).x
+        let bottom = quadrantCoordinatesForPoint(bottomRightPoint).y
+        
+        
+        var proximalQuadrants = Dictionary<String, CGPoint>()
+        
+        for xPos in left...right {
+            for yPos in bottom...top {
                 
-
+                let hash = quadrantHash(xPos, y: yPos)
+                proximalQuadrants[hash] = CGPoint(x: xPos, y: yPos)
+                
+            }
+        }
+        
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            
+            
             // 1. Load / create new quadrants as needed and add their new sprites to the queue
             for (quadrantHash, quadrantPosition) in proximalQuadrants {
                 if self.quadrantIndex[quadrantHash] == nil {
@@ -104,76 +148,77 @@ public class VDLWorldManager: VDLLayerDelegate {
             
             // 2. Reconcile the positions of objects from outgoing quadrants, delete orphaned objects that are beyond all quadrants
             
-                for (quadrantHash, quadrant) in self.quadrantIndex {
+            for (quadrantHash, quadrant) in self.quadrantIndex {
+                
+                if proximalQuadrants[quadrantHash] == nil {
                     
-                    if proximalQuadrants[quadrantHash] == nil {
+                    // We're going to be removing this quadrant
+                    
+                    for object in quadrant.objects {
                         
-                        // We're going to be removing this quadrant
+                        let objectSprite = object.spriteNode()
                         
-                        for object in quadrant.objects {
-                            
-                            let objectSprite = object.spriteNode()
-                            
-                            // Update the position and rotation details of this object
-                            object.position = objectSprite.position
-                            object.zRotation = Float(objectSprite.zRotation)
-                            
-                            // Update the physics of this object
-                            if let physics = objectSprite.physicsBody {
-                                object.angularVelocity = Float(physics.angularVelocity)
-                                object.velocity = CGVectorMake(physics.velocity.dx, physics.velocity.dy)
-                            }
-                            
-                            let objectQuadrantHash = self.quadrantHashForPoint(object.position)
-                            
-                            if quadrantHash != objectQuadrantHash {
-                                if let newQuadrant = self.quadrantIndex[objectQuadrantHash] {
-                                    // Object has moved to a quadrant that DOES exist. Swap it
-                                    
-                                    quadrant.moveObject(object, toQuadrant: newQuadrant)
-                                    
-                                } else {
-                                    // Object moved to a quadrant that is NOT loaded, delete it AND it's sprite.
-                                    
-                                    quadrant.removeNode(object)
-                                    
-                                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                        self.deletedNodesQueue.insert(object.spriteNode())
-                                    })
-                                    
-                                }
+                        // Update the position and rotation details of this object
+                        object.position = objectSprite.position
+                        object.zRotation = Float(objectSprite.zRotation)
+                        
+                        // Update the physics of this object
+                        if let physics = objectSprite.physicsBody {
+                            object.angularVelocity = Float(physics.angularVelocity)
+                            object.velocity = CGVectorMake(physics.velocity.dx, physics.velocity.dy)
+                        }
+                        
+                        let objectQuadrantHash = self.quadrantHashForPoint(object.position)
+                        
+                        if quadrantHash != objectQuadrantHash {
+                            if let newQuadrant = self.quadrantIndex[objectQuadrantHash] {
+                                // Object has moved to a quadrant that DOES exist. Swap it
+                                
+                                quadrant.moveObject(object, toQuadrant: newQuadrant)
+                                
+                            } else {
+                                // Object moved to a quadrant that is NOT loaded, delete it AND it's sprite.
+                                
+                                quadrant.removeNode(object)
+                                
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    self.deletedNodesQueue.insert(object.spriteNode())
+                                })
+                                
                             }
                         }
                     }
                 }
+            }
+            
+            // 3. Save outgoing quadrants, remove objects from scene.
+            for (quadrantHash, quadrant) in self.quadrantIndex {
                 
-                // 3. Save outgoing quadrants, remove objects from scene.
-                for (quadrantHash, quadrant) in self.quadrantIndex {
+                if proximalQuadrants[quadrantHash] == nil {
+                    // This quadrant needs deleting.
                     
-                    if proximalQuadrants[quadrantHash] == nil {
-                        // This quadrant needs deleting.
+                    // Remove this quadrant from the index
+                    self.quadrantIndex[quadrantHash] = nil
+                    
+                    // Save it
+                    
+                    let filePath = self.filePathForQuadrant(quadrant)
+                    
+                    quadrant.lastKnownTime = currentTime
+                    quadrant.archiveToFile(filePath)
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         
-                        // Remove this quadrant from the index
-                        self.quadrantIndex[quadrantHash] = nil
-                        
-                        // Save it
-                        
-                        let filePath = self.filePathForQuadrant(quadrant)
-                        
-                        quadrant.lastKnownTime = currentTime
-                        quadrant.archiveToFile(filePath)
-                        
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            
-                            // Add it's objects to the delete que
-                            for object in quadrant.objects {
-                                self.deletedNodesQueue.insert(object.spriteNode())
-                            }
-                        })
-                    }
+                        // Add it's objects to the delete que
+                        for object in quadrant.objects {
+                            self.deletedNodesQueue.insert(object.spriteNode())
+                        }
+                    })
                 }
-            })
-        }
+            }
+        })
+        
+        
     }
     
     

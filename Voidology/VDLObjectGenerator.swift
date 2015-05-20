@@ -41,11 +41,17 @@ public class VDLObjectGenerator {
     
     public func player() -> SKSpriteNode {
         
-        let playerNode = SKSpriteNode(imageNamed: "VoidShip03", normalMapped: false);
+        var playerNode = SKSpriteNode(imageNamed: "VoidShip03_Flat", normalMapped: true);
         
-        let playerTexture = SKTexture(imageNamed: "VoidShip03_CollisionBody")
+        let playerNormalTexture = SKTexture(imageNamed: "VoidShip03_Normal")
         
-        playerNode.physicsBody = SKPhysicsBody(texture: playerTexture, size:CGSizeMake(playerNode.size.width - 10, playerNode.size.height - 10))
+        if let normalTexture = playerNormalTexture {
+            playerNode.normalTexture = normalTexture
+        }
+        
+        let playerCollisionTexture = SKTexture(imageNamed: "VoidShip03_CollisionBody")
+        
+        playerNode.physicsBody = SKPhysicsBody(texture: playerCollisionTexture, size:CGSizeMake(playerNode.size.width - 10, playerNode.size.height - 10))
         playerNode.physicsBody?.density = 50
         
         return playerNode

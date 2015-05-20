@@ -18,8 +18,6 @@ public class MainScene: SKScene {
     
     var playerNode = SKSpriteNode()
     
-    var playerTopLayer = SKSpriteNode()
-    
     var playerExhaust = SKSpriteNode()
     
     var emitterNode:SKEmitterNode?
@@ -41,26 +39,48 @@ public class MainScene: SKScene {
         
         // Make Player
         playerNode = VDLObjectGenerator().player()
+        playerNode.lightingBitMask = 1
         
         // Make exhaust
         playerExhaust = VDLObjectGenerator().playerExhaust()
         playerNode.addChild(playerExhaust)
         
-        self.addNodeToWorld(playerNode, depth: 0)
+        playerNode.position = CGPoint(x: 5000, y: 5000)
         
-        // Make Top Layer
-        playerTopLayer = VDLObjectGenerator().playerTopLayer()
-        addNodeToWorld(playerTopLayer, depth: 0)
+        self.addNodeToWorld(playerNode, depth: 0)
         
         // Force some new layers
         for number in 1...10 {
-            layerWithDepth(UInt(number))
+//            layerWithDepth(UInt(number))
         }
         
         // Load the gameclock from NSUserDefaults
         gameClock = NSUserDefaults.standardUserDefaults().doubleForKey("gameClockInt")
         
         self.centerOnNode(playerNode)
+        
+        
+        // Setup a light.
+        
+        var light1 = SKLightNode()
+        light1.position = CGPoint(x: 100, y: 100)
+        light1.falloff = 1
+        light1.ambientColor = UIColor(white: 0.2, alpha: 1)
+        light1.lightColor = UIColor(white: 1, alpha: 1)
+        light1.categoryBitMask = 1
+        addChild(light1)
+        
+        var light2 = SKLightNode()
+        light2.position = CGPoint(x: 0, y: 0)
+        light2.falloff = 0.5
+        light2.ambientColor = UIColor.blackColor()
+        light2.lightColor = UIColor(white: 1, alpha: 0.5)
+        light2.categoryBitMask = 2
+        addChild(light2)
+
+
+        
+        
     }
     
     
@@ -77,7 +97,7 @@ public class MainScene: SKScene {
             return layer
         } else {
             var newLayer = VDLLayer(depth: depth, delegate: VDLWorldManager.sharedManager)
-            newLayer.alpha = 1 - (CGFloat(depth) / 30)
+//            newLayer.alpha = 1 - (CGFloat(depth) / 30)
             
             self.addChild(newLayer)
             
@@ -214,17 +234,16 @@ public class MainScene: SKScene {
     
     public override func didSimulatePhysics() {
         
-        // Position the playerTopLayer node to match playerNode.
-        playerTopLayer.position = playerNode.position
-        playerTopLayer.zRotation = playerNode.zRotation
-        
         // Center the view on the playerNode
         self.centerOnNode(playerNode)
         
         // Insert and delete objects from VDLWorldManager
         for newObject in VDLWorldManager.sharedManager.insertSpriteNodes() {
             if newObject.parent == nil {
-                self.addNodeToWorld(newObject, depth: 0)
+                let newDepth = UInt(newObject.zPosition)
+                newObject.zPosition = 0.0
+//                newObject.alpha = 1 - (CGFloat(newDepth) * 0.05)
+                self.addNodeToWorld(newObject, depth: newDepth)
             }
         }
         
@@ -239,7 +258,11 @@ public class MainScene: SKScene {
     public func centerOnNode(node: SKNode) {
         
         let focalPoint = CGPointMake(node.position.x, node.position.y)
-        VDLWorldManager.sharedManager.focusOnPoint(focalPoint, currentTime: gameClock)
+        if let view = self.view {
+            VDLWorldManager.sharedManager.focusOnPoint(focalPoint, currentTime: gameClock, view: view)
+        }
+        
+        
         
         // Center's each VDLLayer on the provided node given the current view.
         for (depth, layer) in layerSet {

@@ -93,7 +93,7 @@ class ViewController: UIViewController {
     
     func setButton(sender: UIButton, visible: Bool) {
         if(visible) {
-            sender.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
+            sender.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.00)
         } else {
             sender.backgroundColor = UIColor.clearColor()
         }
