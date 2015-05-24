@@ -14,6 +14,12 @@ enum objectCategory:UInt32 {
     case objectCategory = 2
 }
 
+enum LightingCategory: UInt32 {
+    case Foreground = 1
+    case Background = 2
+    case Player = 4
+}
+
 public class MainScene: SKScene {
     
     var playerNode = SKSpriteNode()
@@ -39,7 +45,7 @@ public class MainScene: SKScene {
         
         // Make Player
         playerNode = VDLObjectGenerator().player()
-        playerNode.lightingBitMask = 1
+        playerNode.lightingBitMask = LightingCategory.Player.rawValue
         
         // Make exhaust
         playerExhaust = VDLObjectGenerator().playerExhaust()
@@ -60,25 +66,32 @@ public class MainScene: SKScene {
         self.centerOnNode(playerNode)
         
         
-        // Setup a light.
-        
+        // Foreground objects light
         var light1 = SKLightNode()
-        light1.position = CGPoint(x: 100, y: 100)
+        light1.position = CGPoint(x: 0, y: 0)
         light1.falloff = 1
         light1.ambientColor = UIColor(white: 0.2, alpha: 1)
         light1.lightColor = UIColor(white: 1, alpha: 1)
-        light1.categoryBitMask = 1
+        light1.categoryBitMask = LightingCategory.Foreground.rawValue
         addChild(light1)
         
+        // Background objects light
         var light2 = SKLightNode()
         light2.position = CGPoint(x: 0, y: 0)
         light2.falloff = 0.5
-        light2.ambientColor = UIColor.blackColor()
-        light2.lightColor = UIColor(white: 1, alpha: 0.5)
-        light2.categoryBitMask = 2
+        light2.ambientColor = UIColor(white: 0.2, alpha: 0.4)
+        light2.lightColor = UIColor(white: 1, alpha: 0.4)
+        light2.categoryBitMask = LightingCategory.Background.rawValue
         addChild(light2)
 
-
+        // Ship light
+        var light3 = SKLightNode()
+        light3.position = CGPoint(x: 50, y: 50)
+        light3.falloff = 0
+        light3.ambientColor = UIColor.blackColor()
+        light3.lightColor = UIColor(white: 1, alpha: 1)
+        light3.categoryBitMask = LightingCategory.Player.rawValue
+        addChild(light3)
         
         
     }

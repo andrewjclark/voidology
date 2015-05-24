@@ -28,6 +28,16 @@
 		519F97681AE8F0CE008E6FB6 /* spark_line-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 519F97671AE8F0CE008E6FB6 /* spark_line-1.png */; };
 		51B7914B1B09E34E00F3D866 /* CubeTest2_Normal@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B791491B09E34E00F3D866 /* CubeTest2_Normal@1x.png */; };
 		51B7914C1B09E34E00F3D866 /* CubeTest2@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B7914A1B09E34E00F3D866 /* CubeTest2@1x.png */; };
+		51BBEC751B0E077E002DC7FD /* Asteroid_Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BBEC731B0E077E002DC7FD /* Asteroid_Normal@2x.png */; };
+		51BBEC761B0E077E002DC7FD /* Asteroid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BBEC741B0E077E002DC7FD /* Asteroid@2x.png */; };
+		51BBEC781B0E0BC0002DC7FD /* Asteroid_Rock1_Frontal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BBEC771B0E0BC0002DC7FD /* Asteroid_Rock1_Frontal@2x.png */; };
+		51BBEC7D1B0E0D9A002DC7FD /* Asteroid2_Rock1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BBEC7B1B0E0D9A002DC7FD /* Asteroid2_Rock1@2x.png */; };
+		51BBEC7E1B0E0D9A002DC7FD /* Asteroid2_Rock1_Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BBEC7C1B0E0D9A002DC7FD /* Asteroid2_Rock1_Normal@2x.png */; };
+		51BBEC801B0E0ECF002DC7FD /* Asteroid2_Rock1_Normal2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BBEC7F1B0E0ECF002DC7FD /* Asteroid2_Rock1_Normal2@2x.png */; };
+		51BBEC821B0E0FD2002DC7FD /* Asteroid2_Rock1_Normal3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BBEC811B0E0FD2002DC7FD /* Asteroid2_Rock1_Normal3@2x.png */; };
+		51BBEC841B0E10E5002DC7FD /* Asteroid2_Rock1_Normal4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BBEC831B0E10E5002DC7FD /* Asteroid2_Rock1_Normal4@2x.png */; };
+		51BBEC861B0E114B002DC7FD /* Asteroid2_Rock1_Normal5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BBEC851B0E114B002DC7FD /* Asteroid2_Rock1_Normal5@2x.png */; };
+		51BBEC881B0E11D1002DC7FD /* Asteroid2_Rock1_Normal6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BBEC871B0E11D1002DC7FD /* Asteroid2_Rock1_Normal6@2x.png */; };
 		51BD07B61B09B1A400947BD0 /* Cube_Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BD07B41B09B1A400947BD0 /* Cube_Normal@2x.png */; };
 		51BD07B71B09B1A400947BD0 /* Cube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51BD07B51B09B1A400947BD0 /* Cube@2x.png */; };
 		51CD066F1ADA1B75008AB116 /* VoidShip03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */; };
@@ -74,6 +84,16 @@
 		519F97671AE8F0CE008E6FB6 /* spark_line-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spark_line-1.png"; sourceTree = "<group>"; };
 		51B791491B09E34E00F3D866 /* CubeTest2_Normal@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CubeTest2_Normal@1x.png"; sourceTree = "<group>"; };
 		51B7914A1B09E34E00F3D866 /* CubeTest2@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CubeTest2@1x.png"; sourceTree = "<group>"; };
+		51BBEC731B0E077E002DC7FD /* Asteroid_Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asteroid_Normal@2x.png"; sourceTree = "<group>"; };
+		51BBEC741B0E077E002DC7FD /* Asteroid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asteroid@2x.png"; sourceTree = "<group>"; };
+		51BBEC771B0E0BC0002DC7FD /* Asteroid_Rock1_Frontal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asteroid_Rock1_Frontal@2x.png"; sourceTree = "<group>"; };
+		51BBEC7B1B0E0D9A002DC7FD /* Asteroid2_Rock1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asteroid2_Rock1@2x.png"; sourceTree = "<group>"; };
+		51BBEC7C1B0E0D9A002DC7FD /* Asteroid2_Rock1_Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asteroid2_Rock1_Normal@2x.png"; sourceTree = "<group>"; };
+		51BBEC7F1B0E0ECF002DC7FD /* Asteroid2_Rock1_Normal2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asteroid2_Rock1_Normal2@2x.png"; sourceTree = "<group>"; };
+		51BBEC811B0E0FD2002DC7FD /* Asteroid2_Rock1_Normal3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asteroid2_Rock1_Normal3@2x.png"; sourceTree = "<group>"; };
+		51BBEC831B0E10E5002DC7FD /* Asteroid2_Rock1_Normal4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asteroid2_Rock1_Normal4@2x.png"; sourceTree = "<group>"; };
+		51BBEC851B0E114B002DC7FD /* Asteroid2_Rock1_Normal5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asteroid2_Rock1_Normal5@2x.png"; sourceTree = "<group>"; };
+		51BBEC871B0E11D1002DC7FD /* Asteroid2_Rock1_Normal6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asteroid2_Rock1_Normal6@2x.png"; sourceTree = "<group>"; };
 		51BD07B41B09B1A400947BD0 /* Cube_Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cube_Normal@2x.png"; sourceTree = "<group>"; };
 		51BD07B51B09B1A400947BD0 /* Cube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cube@2x.png"; sourceTree = "<group>"; };
 		51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03@2x.png"; sourceTree = "<group>"; };
@@ -173,6 +193,16 @@
 		51E3017F1ADA168B003D1147 /* VoidShip */ = {
 			isa = PBXGroup;
 			children = (
+				51BBEC7B1B0E0D9A002DC7FD /* Asteroid2_Rock1@2x.png */,
+				51BBEC871B0E11D1002DC7FD /* Asteroid2_Rock1_Normal6@2x.png */,
+				51BBEC851B0E114B002DC7FD /* Asteroid2_Rock1_Normal5@2x.png */,
+				51BBEC831B0E10E5002DC7FD /* Asteroid2_Rock1_Normal4@2x.png */,
+				51BBEC811B0E0FD2002DC7FD /* Asteroid2_Rock1_Normal3@2x.png */,
+				51BBEC7F1B0E0ECF002DC7FD /* Asteroid2_Rock1_Normal2@2x.png */,
+				51BBEC7C1B0E0D9A002DC7FD /* Asteroid2_Rock1_Normal@2x.png */,
+				51BBEC771B0E0BC0002DC7FD /* Asteroid_Rock1_Frontal@2x.png */,
+				51BBEC731B0E077E002DC7FD /* Asteroid_Normal@2x.png */,
+				51BBEC741B0E077E002DC7FD /* Asteroid@2x.png */,
 				5120EFB51B0852F700390F2E /* VoidShip03_Normal@2x.png */,
 				51CD066E1ADA1B75008AB116 /* VoidShip03@2x.png */,
 				5120EFB71B08559700390F2E /* VoidShip03_Flat@2x.png */,
@@ -273,21 +303,31 @@
 			files = (
 				51BD07B71B09B1A400947BD0 /* Cube@2x.png in Resources */,
 				515A28B51ABFBCD2009588DB /* Ship@2x.png in Resources */,
+				51BBEC751B0E077E002DC7FD /* Asteroid_Normal@2x.png in Resources */,
+				51BBEC841B0E10E5002DC7FD /* Asteroid2_Rock1_Normal4@2x.png in Resources */,
 				514297C01ADA32530005911D /* VoidShip03-TopLayer@2x.png in Resources */,
+				51BBEC7E1B0E0D9A002DC7FD /* Asteroid2_Rock1_Normal@2x.png in Resources */,
 				51CD06731ADA1EE4008AB116 /* spark.png in Resources */,
 				51CD06751ADA262D008AB116 /* VoidShip03_Exhaust@2x.png in Resources */,
+				51BBEC861B0E114B002DC7FD /* Asteroid2_Rock1_Normal5@2x.png in Resources */,
 				5147047F1ABFB9B60069B25C /* Main.storyboard in Resources */,
 				514704841ABFB9B60069B25C /* LaunchScreen.xib in Resources */,
 				5120EFB61B0852F700390F2E /* VoidShip03_Normal@2x.png in Resources */,
+				51BBEC821B0E0FD2002DC7FD /* Asteroid2_Rock1_Normal3@2x.png in Resources */,
 				5120EFB81B08559700390F2E /* VoidShip03_Flat@2x.png in Resources */,
+				51BBEC761B0E077E002DC7FD /* Asteroid@2x.png in Resources */,
 				51BD07B61B09B1A400947BD0 /* Cube_Normal@2x.png in Resources */,
 				51B7914C1B09E34E00F3D866 /* CubeTest2@1x.png in Resources */,
+				51BBEC7D1B0E0D9A002DC7FD /* Asteroid2_Rock1@2x.png in Resources */,
 				51CD066F1ADA1B75008AB116 /* VoidShip03@2x.png in Resources */,
+				51BBEC801B0E0ECF002DC7FD /* Asteroid2_Rock1_Normal2@2x.png in Resources */,
 				514704811ABFB9B60069B25C /* Images.xcassets in Resources */,
 				51B7914B1B09E34E00F3D866 /* CubeTest2_Normal@1x.png in Resources */,
 				519EEA2D1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png in Resources */,
+				51BBEC781B0E0BC0002DC7FD /* Asteroid_Rock1_Frontal@2x.png in Resources */,
 				519F97681AE8F0CE008E6FB6 /* spark_line-1.png in Resources */,
 				51CD06711ADA1C18008AB116 /* RocketEmitter.sks in Resources */,
+				51BBEC881B0E11D1002DC7FD /* Asteroid2_Rock1_Normal6@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
