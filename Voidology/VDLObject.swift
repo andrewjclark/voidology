@@ -59,27 +59,14 @@ public class VDLObject: NSObject, NSCoding {
                 newColor = UIColor.grayColor()
             }
             
-            
-            
-//            var newNode = SKSpriteNode(color: newColor, size: size)
-            
             var newNode = SKSpriteNode(imageNamed: "Asteroid2_Rock1")
             
             newNode.size = size
             
-            if depth >= 0 {
-                
-                
-                var newNodeNormal = SKTexture(imageNamed: "Asteroid2_Rock1_Normal6")
-                if let normal = newNodeNormal {
-                    newNode.normalTexture = normal
-                }
-
-            } else {
-            
+            var newNodeNormal = SKTexture(imageNamed: "Asteroid2_Rock1_Normal6")
+            if let normal = newNodeNormal {
+                newNode.normalTexture = normal
             }
-            
-            
             
             if depth == 0 {
                 newNode.lightingBitMask = 1
@@ -87,16 +74,12 @@ public class VDLObject: NSObject, NSCoding {
                 newNode.lightingBitMask = 2
             }
             
-            
             newNode.position = position
             newNode.zRotation = CGFloat(zRotation)
-            
             newNode.zPosition = CGFloat(depth)
             
-            if(depth == 0) {
-//                newNode.physicsBody = SKPhysicsBody(texture: newNode.texture, alphaThreshold: 0.5, size: newNode.size)
+            if depth == 0 {
                 newNode.physicsBody = SKPhysicsBody(circleOfRadius: size.width * 0.48)
-                
                 newNode.physicsBody?.angularVelocity = CGFloat(angularVelocity)
                 newNode.physicsBody?.velocity = velocity
                 newNode.physicsBody?.density = 10.0

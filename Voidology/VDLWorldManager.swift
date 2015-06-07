@@ -37,7 +37,7 @@ public class VDLWorldManager: VDLLayerDelegate {
     func visibleRectForDepth(depth: UInt, point: CGPoint, view: UIView) -> CGRect {
         
         // Determine the viewRect that we can see in the furthest layer.
-        let divisor = VDLLayer().divisorForDepth(9)
+        let divisor = divisorForDepth(9)
         
         // In this case divisor = 0.25
         let viewWidth = view.frame.width / divisor
@@ -47,20 +47,26 @@ public class VDLWorldManager: VDLLayerDelegate {
         
         let deepView = CGRect(x: point.x - viewWidth / 2, y: point.y - viewHeight / 2, width: viewWidth, height: viewHeight)
         
+        
+        // Draw a Rect for testing purposes.
         if tempCount == 0 {
             let rectNode = SKSpriteNode(color: UIColor.greenColor().colorWithAlphaComponent(0.5), size: deepSize)
             rectNode.position = point
             rectNode.zPosition = 9
 //            self.newNodesQueue.insert(rectNode)
         }
-        
         tempCount += 1
         
-        
         return deepView
-        
     }
     
+    func divisorForDepth(depth: UInt) -> CGFloat {
+        // The divisor for the given depth - this determines how far away a layer "appears" to be.
+        
+        var depthFloat = 1 / ((CGFloat(depth) / 3) + 1)
+        
+        return depthFloat
+    }
     
     public func focusOnPoint(point: CGPoint, currentTime: NSTimeInterval, view: UIView) {
         
@@ -83,7 +89,6 @@ public class VDLWorldManager: VDLLayerDelegate {
         let right = quadrantCoordinatesForPoint(bottomRightPoint).x
         let bottom = quadrantCoordinatesForPoint(bottomRightPoint).y
         
-        
         var proximalQuadrants = Dictionary<String, CGPoint>()
         
         for xPos in left...right {
@@ -91,10 +96,8 @@ public class VDLWorldManager: VDLLayerDelegate {
                 
                 let hash = quadrantHash(xPos, y: yPos)
                 proximalQuadrants[hash] = CGPoint(x: xPos, y: yPos)
-                
             }
         }
-        
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
@@ -139,7 +142,10 @@ public class VDLWorldManager: VDLLayerDelegate {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         if let newQuadrant = self.quadrantIndex[quadrantHash] {
                             for object in newQuadrant.objects {
-                                self.newNodesQueue.insert(object.spriteNode())
+                                
+                                let newNode = object.spriteNode()
+                                
+                                self.newNodesQueue.insert(newNode)
                             }
                         }
                     })
@@ -325,7 +331,7 @@ public class VDLWorldManager: VDLLayerDelegate {
     }
     
     
-    func transitoryObjectRatio(depth: UInt, rect: CGRect) -> CGFloat {
+    func transitoryObjectRatio(depth: UInt, rect: CGRect) -> CGFloat? {
         // Protocol method for VDLLayer objects - defines how many transitory objects should appear per point in the given rect.
         
         let quadrantHash = quadrantHashForPoint(mainPoint)
@@ -333,12 +339,12 @@ public class VDLWorldManager: VDLLayerDelegate {
         if let quadrant = quadrantIndex[quadrantHash] {
             return quadrant.transitoryObjectRatio(depth)
         } else {
-            return 0
+            return nil
         }
     }
     
     
-    func newTransitoryObject(depth: UInt, position: CGPoint) -> SKSpriteNode? {
+    func newTransitoryObject(depth: UInt, position: CGPoint) -> VDLObject? {
         // Procotol method for VDLLayer objects - returns an SKSpriteNode appropriate to the depth and position provided.
         
         let quadrantHash = quadrantHashForPoint(mainPoint)

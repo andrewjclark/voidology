@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>75C6A2D3-19AD-416A-93F4-A56178586C6E</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Voidology</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B065D10251145C875B15E8C7F3B768E4F88BCB8A</key>
 		<string>https://github.com/andrewjclark/voidology.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Voidology.xcodeproj/project.xcworkspace</string>
+	<string>Voidology.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B065D10251145C875B15E8C7F3B768E4F88BCB8A</key>

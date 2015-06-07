@@ -11,18 +11,42 @@ import SpriteKit
 
 public class VDLObjectGenerator {
     
-    public func asteroid() -> SKSpriteNode {
+    public func asteroid() -> VDLObject {
         
-        let newSize = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
-        let asteroid = SKSpriteNode(color: UIColor.lightGrayColor(), size: CGSizeMake(newSize * 25 + 5, newSize * 25 + 5))
         
-        let newRotation = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
+        let color = self.randRange(1, upper: 4)
         
-        asteroid.zRotation = newRotation * 3.14 * 2
-        asteroid.physicsBody = SKPhysicsBody(rectangleOfSize: asteroid.size)
-        asteroid.physicsBody?.density = 100
+        let newNode = VDLObject.new()
         
-        return asteroid
+        let newNodeRotation = (Float(arc4random()) / Float(UINT32_MAX)) * 3.14 * 2
+        
+        newNode.zRotation = newNodeRotation
+        
+        switch color {
+        case 1:
+            newNode.color = VDLObjectColor.Grey
+        case 2:
+            newNode.color = VDLObjectColor.White
+        case 3:
+            newNode.color = VDLObjectColor.Red
+        case 4:
+            newNode.color = VDLObjectColor.Yellow
+        default:
+            newNode.color = VDLObjectColor.None
+        }
+        
+        
+        var width = arc4random_uniform(20)
+        var height = width
+        
+        newNode.size = CGSizeMake(CGFloat(width) * 3 + 20, CGFloat(height) * 3 + 20)
+        
+        var spin = arc4random_uniform(11)
+        
+        newNode.angularVelocity = (Float(spin) - 6) / 3
+        
+        return newNode
+
     }
     
     
@@ -76,9 +100,18 @@ public class VDLObjectGenerator {
     
     public func star() -> SKSpriteNode {
         
-        let newSize = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
+        let rand = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
         
-        var star = SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(newSize * 2 + 1, newSize * 2 + 1))
+        let newSize = CGSize(width: 5 * rand + 1, height: 5 * rand + 1)
+        
+        var star = SKSpriteNode(color: UIColor.redColor(), size: newSize)
+        
+        if let texture = SKTexture(imageNamed: "Star_1") {
+            star = SKSpriteNode(imageNamed: "Star_1")
+            star.size = newSize
+        }
+        
+
         
         return star
     }
@@ -102,4 +135,7 @@ public class VDLObjectGenerator {
         
     }
     
+    func randRange (lower: UInt32 , upper: UInt32) -> UInt32 {
+        return lower + arc4random_uniform(upper - lower + 1)
+    }
 }

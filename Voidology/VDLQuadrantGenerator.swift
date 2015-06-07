@@ -21,8 +21,7 @@ public class VDLQuadrantGenerator {
         
         let color = self.randRange(1, upper: 4)
         
-        for index in 0...80 {
-            // Generate new node in a background process
+        for index in 0...40 {
             
             let newNode = VDLObject.new()
             
@@ -39,8 +38,6 @@ public class VDLQuadrantGenerator {
             } else {
                 newNode.depth = 0
             }
-            
-            
             
             newNode.zRotation = newNodeRotation
             

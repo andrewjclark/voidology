@@ -79,25 +79,30 @@ public class VDLQuadrant: NSObject, NSCoding {
     }
     
     public func transitoryObjectRatio(depth: UInt) -> CGFloat {
+//        return 0
         
-        if depth > 0 {
-            return 1 / 20000
+        
+        
+        if depth < 10 {
+            return 1 / 50000
         } else {
             return 0
         }
+        
     }
     
     
-    public func newTransitoryObject(depth: UInt, position: CGPoint) -> SKSpriteNode {
+    public func newTransitoryObject(depth: UInt, position: CGPoint) -> VDLObject? {
         // Procotol method for VDLLayer objects - returns an SKSpriteNode appropriate to the depth and position provided.
-        if depth > 0 {
-            return VDLObjectGenerator().star()
-        } else {
-            let asteroid = VDLObjectGenerator().asteroid()
-            asteroid.position = position
-            
-            return VDLObjectGenerator().asteroid()
-        }
+        
+        let newObject = VDLObjectGenerator().asteroid()
+        
+        let width = newObject.size.width
+        
+        newObject.size = CGSize(width: width * 0.5, height: width * 0.5)
+        newObject.depth = Int(depth)
+        
+        return newObject
     }
     
     

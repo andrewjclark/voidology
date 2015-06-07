@@ -51,14 +51,16 @@ public class MainScene: SKScene {
         playerExhaust = VDLObjectGenerator().playerExhaust()
         playerNode.addChild(playerExhaust)
         
-        playerNode.position = CGPoint(x: 5000, y: 5000)
+        playerNode.position = CGPoint(x: 0, y: 0)
         
         self.addNodeToWorld(playerNode, depth: 0)
         
         // Force some new layers
-        for number in 1...10 {
-//            layerWithDepth(UInt(number))
+        for number in 0...9 {
+            layerWithDepth(UInt(10 + number * 5))
         }
+        
+//        layerWithDepth(5)
         
         // Load the gameclock from NSUserDefaults
         gameClock = NSUserDefaults.standardUserDefaults().doubleForKey("gameClockInt")
@@ -96,7 +98,6 @@ public class MainScene: SKScene {
         
     }
     
-    
     public func addNodeToWorld(node: SKNode, depth: UInt) {
         // Add the provided node to the appropriate VDLLayer
         var layer = self.layerWithDepth(depth)
@@ -110,7 +111,6 @@ public class MainScene: SKScene {
             return layer
         } else {
             var newLayer = VDLLayer(depth: depth, delegate: VDLWorldManager.sharedManager)
-//            newLayer.alpha = 1 - (CGFloat(depth) / 30)
             
             self.addChild(newLayer)
             
@@ -134,7 +134,6 @@ public class MainScene: SKScene {
             
             if previousTimeInt != Int(currentTime) {
                 // Save gameClock
-                
                 NSUserDefaults.standardUserDefaults().setDouble(gameClock, forKey: "gameClockInt")
                 previousTimeInt = Int(currentTime)
             }
@@ -274,8 +273,6 @@ public class MainScene: SKScene {
         if let view = self.view {
             VDLWorldManager.sharedManager.focusOnPoint(focalPoint, currentTime: gameClock, view: view)
         }
-        
-        
         
         // Center's each VDLLayer on the provided node given the current view.
         for (depth, layer) in layerSet {
