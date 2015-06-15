@@ -9,15 +9,14 @@
 import UIKit
 import SpriteKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FaderViewDelegate {
     
     var mainScene = MainScene()
     
-    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var leftFader: FaderView!
+    @IBOutlet weak var middleFader: FaderView!
+    @IBOutlet weak var rightFader: FaderView!
     
-    @IBOutlet weak var centerButton: UIButton!
-    
-    @IBOutlet weak var rightButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +40,27 @@ class ViewController: UIViewController {
         skView.presentScene(mainScene)
         
         mainScene.backgroundColor = UIColor.clearColor()
-//        skView.backgroundColor = UIColor.clearColor()
-//        self.view.backgroundColor
         
-        // Hide all the buttons
-        self.setButton(leftButton, visible: false)
-        self.setButton(centerButton, visible: false)
-        self.setButton(rightButton, visible: false)
+        // Set fader delegates
+        leftFader.delegate = self
+        middleFader.delegate = self
+        rightFader.delegate = self
+    }
+    
+    func faderChangedValue(value: CGFloat?, faderView: FaderView) {
+        print("faderChangedValue")
+        
+        
+        if faderView == leftFader {
+            VDLUserInputManager.sharedInstance.leftButton = value
+        } else if faderView == middleFader {
+            VDLUserInputManager.sharedInstance.leftButton = value
+            VDLUserInputManager.sharedInstance.rightButton = value
+        } else if faderView == rightFader {
+            VDLUserInputManager.sharedInstance.rightButton = value
+        }
+        
+        
     }
     
     

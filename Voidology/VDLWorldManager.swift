@@ -10,7 +10,7 @@ import Foundation
 import CoreGraphics
 import SpriteKit
 
-public class VDLWorldManager: VDLLayerDelegate {
+public class VDLWorldManager {
     
     let quadrantSize:CGSize = CGSizeMake(1000, 1000)
     var currentQuadrantHash = String()

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 public enum PlayerButtonState {
     case Pressed
@@ -23,6 +24,9 @@ public enum PlayerButtonType {
 public class VDLUserInputManager {
     
     var buttonDictionary = Dictionary<PlayerButtonType, NSDate>()
+    
+    public var leftButton:CGFloat?
+    public var rightButton:CGFloat?
     
     class var sharedInstance: VDLUserInputManager {
         // Setup the sharedInstance singleton.

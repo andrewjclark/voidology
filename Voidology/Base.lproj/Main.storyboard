@@ -16,69 +16,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpC-WG-diN">
-                                <rect key="frame" x="200" y="20" width="200" height="250"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDown" id="O9K-qY-Myn"/>
-                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="PjZ-Qr-1hL"/>
-                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="JiF-Q9-bdf"/>
-                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchCancel" id="drA-kw-1Xu"/>
-                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hDw-0e-X8P"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei2-zg-xuR">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-H3-isK" customClass="FaderView" customModule="Voidology" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="200" height="580"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="8SY-bu-JRy"/>
-                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDown" id="kTt-I9-hSk"/>
-                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchCancel" id="Mdj-xc-oyz"/>
-                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NxM-N4-xW4"/>
-                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="cIl-2E-fef"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2B7-ao-0dj">
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXa-VB-rQN" customClass="FaderView" customModule="Voidology" customModuleProvider="target">
                                 <rect key="frame" x="400" y="20" width="200" height="580"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDown" id="LYi-VC-7Su"/>
-                                    <action selector="pressedButton:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="c75-33-0ri"/>
-                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchCancel" id="68Y-aJ-ORJ"/>
-                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="QCH-YV-Nhs"/>
-                                    <action selector="unpressedButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lHK-F4-vxU"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUy-C6-Fqi" customClass="FaderView" customModule="Voidology" customModuleProvider="target">
+                                <rect key="frame" x="200" y="20" width="200" height="580"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="XpC-WG-diN" secondAttribute="bottom" id="8b7-Tx-FMO"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Ei2-zg-xuR" secondAttribute="bottom" id="EJb-Kg-PGS"/>
-                            <constraint firstItem="Ei2-zg-xuR" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="GjG-S7-Rwa"/>
-                            <constraint firstItem="XpC-WG-diN" firstAttribute="width" secondItem="Ei2-zg-xuR" secondAttribute="width" id="QAw-Af-tS1"/>
-                            <constraint firstItem="XpC-WG-diN" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="byc-re-Fqf"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2B7-ao-0dj" secondAttribute="bottom" id="in7-rL-1Kf"/>
-                            <constraint firstItem="2B7-ao-0dj" firstAttribute="leading" secondItem="XpC-WG-diN" secondAttribute="trailing" id="lQR-pJ-WfY"/>
-                            <constraint firstAttribute="right" secondItem="2B7-ao-0dj" secondAttribute="right" id="lza-u7-xTr"/>
-                            <constraint firstItem="Ei2-zg-xuR" firstAttribute="left" secondItem="kh9-bI-dsS" secondAttribute="left" id="sN0-47-rJh"/>
-                            <constraint firstItem="XpC-WG-diN" firstAttribute="width" secondItem="2B7-ao-0dj" secondAttribute="width" id="w4e-Z4-oVg"/>
-                            <constraint firstItem="XpC-WG-diN" firstAttribute="leading" secondItem="Ei2-zg-xuR" secondAttribute="trailing" id="z6q-9a-Jmy"/>
-                            <constraint firstItem="2B7-ao-0dj" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="ztL-NF-DFJ"/>
+                            <constraint firstItem="dUy-C6-Fqi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="5HH-yy-0Q1"/>
+                            <constraint firstItem="KXa-VB-rQN" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="6ck-Sj-xBT"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="NqQ-H3-isK" secondAttribute="bottom" id="9VW-7f-6fK"/>
+                            <constraint firstAttribute="trailing" secondItem="KXa-VB-rQN" secondAttribute="trailing" id="Blb-pe-VSL"/>
+                            <constraint firstItem="NqQ-H3-isK" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="DIo-Oe-9aR"/>
+                            <constraint firstItem="dUy-C6-Fqi" firstAttribute="leading" secondItem="NqQ-H3-isK" secondAttribute="trailing" id="ZbS-yV-Cur"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="KXa-VB-rQN" secondAttribute="bottom" id="aLD-dp-uOd"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="dUy-C6-Fqi" secondAttribute="bottom" id="cg1-xn-G6N"/>
+                            <constraint firstItem="dUy-C6-Fqi" firstAttribute="width" secondItem="KXa-VB-rQN" secondAttribute="width" id="grb-qs-b28"/>
+                            <constraint firstItem="NqQ-H3-isK" firstAttribute="width" secondItem="dUy-C6-Fqi" secondAttribute="width" id="tcM-wB-aRH"/>
+                            <constraint firstItem="KXa-VB-rQN" firstAttribute="leading" secondItem="dUy-C6-Fqi" secondAttribute="trailing" id="w5H-ie-NoI"/>
+                            <constraint firstItem="NqQ-H3-isK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="xc5-dC-Ilk"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="centerButton" destination="XpC-WG-diN" id="gcN-Zh-CVY"/>
-                        <outlet property="leftButton" destination="Ei2-zg-xuR" id="A3d-CP-cqA"/>
-                        <outlet property="rightButton" destination="2B7-ao-0dj" id="IlX-7I-SvS"/>
+                        <outlet property="leftFader" destination="NqQ-H3-isK" id="bn7-kH-aLG"/>
+                        <outlet property="middleFader" destination="dUy-C6-Fqi" id="QUA-N1-Yef"/>
+                        <outlet property="rightFader" destination="KXa-VB-rQN" id="pyB-Zy-ELW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

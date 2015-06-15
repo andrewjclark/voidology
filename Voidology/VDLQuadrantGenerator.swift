@@ -21,7 +21,7 @@ public class VDLQuadrantGenerator {
         
         let color = self.randRange(1, upper: 4)
         
-        for index in 0...40 {
+        for index in 0...20 {
             
             let newNode = VDLObject.new()
             

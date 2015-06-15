@@ -13,7 +13,6 @@ public class VDLObjectGenerator {
     
     public func asteroid() -> VDLObject {
         
-        
         let color = self.randRange(1, upper: 4)
         
         let newNode = VDLObject.new()
@@ -35,8 +34,8 @@ public class VDLObjectGenerator {
             newNode.color = VDLObjectColor.None
         }
         
-        
         var width = arc4random_uniform(20)
+        
         var height = width
         
         newNode.size = CGSizeMake(CGFloat(width) * 3 + 20, CGFloat(height) * 3 + 20)
@@ -46,7 +45,6 @@ public class VDLObjectGenerator {
         newNode.angularVelocity = (Float(spin) - 6) / 3
         
         return newNode
-
     }
     
     
@@ -65,34 +63,38 @@ public class VDLObjectGenerator {
     
     public func player() -> SKSpriteNode {
         
-        var playerNode = SKSpriteNode(imageNamed: "VoidShip03_Flat", normalMapped: true);
+        var playerNode = SKSpriteNode(imageNamed: "Winged-Ship-Entire", normalMapped: false)
         
-        let playerNormalTexture = SKTexture(imageNamed: "VoidShip03_Normal")
+        let playerNormalTexture = SKTexture(imageNamed: "Winged-Ship-Entire_normal")
         
         if let normalTexture = playerNormalTexture {
             playerNode.normalTexture = normalTexture
         }
         
-        let playerCollisionTexture = SKTexture(imageNamed: "VoidShip03_CollisionBody")
+        let playerCollisionTexture = SKTexture(imageNamed: "Winged-Ship-Entire-Collision")
         
         playerNode.physicsBody = SKPhysicsBody(texture: playerCollisionTexture, size:CGSizeMake(playerNode.size.width - 10, playerNode.size.height - 10))
-        playerNode.physicsBody?.density = 50
-        
-        return playerNode
-    }
-    
-    
-    public func playerTopLayer() -> SKSpriteNode {
-        
-        let playerNode = SKSpriteNode(imageNamed: "VoidShip03-TopLayer", normalMapped: false);
+        playerNode.physicsBody?.density = 20
         
         return playerNode
     }
     
     
     public func playerExhaust() -> SKSpriteNode {
+        var playerExhaust = SKSpriteNode(imageNamed: "Winged-Ship-Entire-Exhaust", normalMapped: false)
         
-        let playerExhaust = SKSpriteNode(imageNamed: "VoidShip03_Exhaust", normalMapped: false);
+        return playerExhaust
+    }
+    
+    
+    public func playerExhaustLeft() -> SKSpriteNode {
+        var playerExhaust = SKSpriteNode(imageNamed: "Winged-Ship-Entire-Exhaust-Left", normalMapped: false)
+        
+        return playerExhaust
+    }
+    
+    public func playerExhaustRight() -> SKSpriteNode {
+        var playerExhaust = SKSpriteNode(imageNamed: "Winged-Ship-Entire-Exhaust-Right", normalMapped: false)
         
         return playerExhaust
     }
@@ -138,4 +140,6 @@ public class VDLObjectGenerator {
     func randRange (lower: UInt32 , upper: UInt32) -> UInt32 {
         return lower + arc4random_uniform(upper - lower + 1)
     }
+    
+    
 }

@@ -25,6 +25,8 @@ public class MainScene: SKScene {
     var playerNode = SKSpriteNode()
     
     var playerExhaust = SKSpriteNode()
+    var playerExhaustLeft = SKSpriteNode()
+    var playerExhaustRight = SKSpriteNode()
     
     var emitterNode:SKEmitterNode?
     
@@ -49,7 +51,16 @@ public class MainScene: SKScene {
         
         // Make exhaust
         playerExhaust = VDLObjectGenerator().playerExhaust()
+        playerExhaust.alpha = 0.0
         playerNode.addChild(playerExhaust)
+        
+        playerExhaustLeft = VDLObjectGenerator().playerExhaustLeft()
+        playerExhaustLeft.alpha = 0.0
+        playerNode.addChild(playerExhaustLeft)
+        
+        playerExhaustRight = VDLObjectGenerator().playerExhaustRight()
+        playerExhaustRight.alpha = 0.0
+        playerNode.addChild(playerExhaustRight)
         
         playerNode.position = CGPoint(x: 0, y: 0)
         
@@ -88,8 +99,8 @@ public class MainScene: SKScene {
 
         // Ship light
         var light3 = SKLightNode()
-        light3.position = CGPoint(x: 50, y: 50)
-        light3.falloff = 0
+        light3.position = CGPoint(x: 66, y: 33)
+        light3.falloff = 1
         light3.ambientColor = UIColor.blackColor()
         light3.lightColor = UIColor(white: 1, alpha: 1)
         light3.categoryBitMask = LightingCategory.Player.rawValue
@@ -110,7 +121,7 @@ public class MainScene: SKScene {
         if let layer = layerSet[depth] {
             return layer
         } else {
-            var newLayer = VDLLayer(depth: depth, delegate: VDLWorldManager.sharedManager)
+            var newLayer = VDLLayer(depth: depth)
             
             self.addChild(newLayer)
             
@@ -143,6 +154,135 @@ public class MainScene: SKScene {
         }
     }
     
+    
+    func updatePlayer(currentTime: NSTimeInterval) {
+        
+        let boostingLeft = VDLUserInputManager.sharedInstance.rightButton
+        let boostingRight = VDLUserInputManager.sharedInstance.leftButton
+        
+        let turnThrust:CGFloat = 0.5
+        let forwardsThrust:CGFloat = 10
+        
+        let sidewardsAngleOffset:CGFloat = -0.1
+        let angularImpulse:CGFloat = 0.002
+        
+        let exhaustAlphaIncrease:CGFloat = 0.3
+        let exhaustAlphaDecrease:CGFloat = 0.1
+        
+        // Apply impulses to the wings as needed
+        
+        var boosting = false
+        
+        if let leftBoost = boostingLeft, rightBoost = boostingRight {
+            // Boosting both
+            print("boost both")
+            
+            // Look at difference between leftBoost and rightBoost
+            var angleOffset:CGFloat = (leftBoost - rightBoost) * -1
+            
+            let deadZone:CGFloat = 0.2
+            
+            if angleOffset > 0 {
+                
+                if angleOffset < deadZone {
+                    angleOffset = 0
+                } else {
+                    angleOffset -= deadZone
+                    angleOffset = angleOffset / (1 - deadZone)
+                }
+                
+            } else {
+                if angleOffset > -deadZone {
+                    angleOffset = 0
+                } else {
+                    angleOffset += deadZone
+                    angleOffset = angleOffset / (1 - deadZone)
+                }
+            }
+            
+            playerNode.zRotation += angleOffset / 10
+            
+            let zRotation = Float(playerNode.zRotation)
+            let speedHypotenuse = Float(forwardsThrust)
+            
+            let opposite = CGFloat(sinf(zRotation) * speedHypotenuse)
+            let adjacent = CGFloat(cosf(zRotation) * speedHypotenuse)
+            
+            playerNode.physicsBody?.applyImpulse(CGVectorMake(adjacent, opposite))
+            
+            boosting = true
+            
+            if playerExhaust.alpha < 1.0 {
+                playerExhaust.alpha += exhaustAlphaIncrease
+            }
+            
+            
+            if playerExhaustLeft.alpha < -angleOffset * 2 {
+                playerExhaustLeft.alpha += exhaustAlphaIncrease
+            }
+            
+            
+            if playerExhaustRight.alpha < angleOffset * 2 {
+                playerExhaustRight.alpha += exhaustAlphaIncrease
+            }
+            
+            
+            
+            
+//            playerExhaustLeft.alpha = -angleOffset * 2
+//            
+//            playerExhaustRight.alpha = angleOffset * 2
+            
+        } else if let leftBoost = boostingLeft {
+            // Fire left booster
+            print("left boost")
+            playerNode.physicsBody?.applyAngularImpulse(-angularImpulse)
+            
+            if playerExhaustLeft.alpha < 1 {
+                playerExhaustLeft.alpha += exhaustAlphaIncrease
+            }
+            
+            
+        } else if let rightBoost = boostingRight {
+            // Fire right booster
+            print("right boost")
+            playerNode.physicsBody?.applyAngularImpulse(angularImpulse)
+            
+            if playerExhaustRight.alpha < 1 {
+                playerExhaustRight.alpha += exhaustAlphaIncrease
+            }
+            
+        }
+        
+        playerNode.physicsBody?.velocity.dx *= 0.98
+        playerNode.physicsBody?.velocity.dy *= 0.98
+        
+        
+        let exhaustNodes = [playerExhaust, playerExhaustLeft, playerExhaustRight]
+        
+        for node in exhaustNodes {
+            if node.alpha > 0 {
+                node.alpha -= exhaustAlphaDecrease
+            }
+        }
+        
+        
+        if boosting {
+            // Reduce the players angular velocity
+            playerNode.physicsBody?.angularVelocity *= 0.8
+            
+        } else {
+        // Reduce the players angular velocity
+        playerNode.physicsBody?.angularVelocity *= 0.9
+        }
+
+    }
+
+
+
+
+
+    /*
     func updatePlayer(currentTime: NSTimeInterval) {
         // This method applies changes to the playerNode and related nodes (such as the emitterNode to make the rocket trail).
         
@@ -156,7 +296,7 @@ public class MainScene: SKScene {
         
         let maxSpin:CGFloat = 5
         
-        let spinVelocity:CGFloat = 1 / 250
+        let spinVelocity:CGFloat = 1 / 100
         
         var playerIsBoosting = false
         
@@ -213,18 +353,20 @@ public class MainScene: SKScene {
                 
             } else {
                 // Make rocket emitter
+                /*
                 if let newEmitter = VDLObjectGenerator().rocketEmitter() {
                     newEmitter.particleBirthRate = 0
                     emitterNode = newEmitter
                     addNodeToWorld(newEmitter, depth: 0)
                 }
+*/
             }
             
             // Reduce the players angular velocity
             playerNode.physicsBody?.angularVelocity *= 0.8
             
             // Make the playerExhaust node more visible.
-            if playerExhaust.alpha < 1.5 {
+            if playerExhaust.alpha < 1.0 {
                 playerExhaust.alpha += 0.2
             }
             
@@ -242,6 +384,7 @@ public class MainScene: SKScene {
             }
         }
     }
+    */
     
     
     public override func didSimulatePhysics() {

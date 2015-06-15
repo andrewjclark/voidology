@@ -46,6 +46,15 @@
 		51CD06731ADA1EE4008AB116 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CD06721ADA1EE4008AB116 /* spark.png */; };
 		51CD06751ADA262D008AB116 /* VoidShip03_Exhaust@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51CD06741ADA262D008AB116 /* VoidShip03_Exhaust@2x.png */; };
 		51CEFBDE1AEFC1420012FAFA /* VDLQuadrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CEFBDD1AEFC1420012FAFA /* VDLQuadrant.swift */; };
+		51DF93F31B2F1CC40052B54F /* Winged-Ship-Entire-Exhaust@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51DF93F21B2F1CC40052B54F /* Winged-Ship-Entire-Exhaust@2x.png */; };
+		51DF93F51B2F1E010052B54F /* FaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DF93F41B2F1E010052B54F /* FaderView.swift */; };
+		51DF94031B2F2AAD0052B54F /* Winged-Ship-Entire-Collision@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51DF94021B2F2AAD0052B54F /* Winged-Ship-Entire-Collision@2x.png */; };
+		51DF94061B2F2CB80052B54F /* Winged-Ship-Entire_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51DF94041B2F2CB80052B54F /* Winged-Ship-Entire_normal@2x.png */; };
+		51DF94071B2F2CB80052B54F /* Winged-Ship-Entire@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51DF94051B2F2CB80052B54F /* Winged-Ship-Entire@2x.png */; };
+		51DF940A1B2F2E040052B54F /* Winged-Ship-Entire-Exhaust-Left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51DF94081B2F2E040052B54F /* Winged-Ship-Entire-Exhaust-Left@2x.png */; };
+		51DF940B1B2F2E040052B54F /* Winged-Ship-Entire-Exhaust-Right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51DF94091B2F2E040052B54F /* Winged-Ship-Entire-Exhaust-Right@2x.png */; };
+		51DF940D1B2F2F120052B54F /* Winged-Ship-Entire-Black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51DF940C1B2F2F120052B54F /* Winged-Ship-Entire-Black@2x.png */; };
+		51DF940F1B2F2F800052B54F /* Winged-Ship-Entire-Gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51DF940E1B2F2F800052B54F /* Winged-Ship-Entire-Gray@2x.png */; };
 		51E991D81AD254C100C3887F /* VDLUserInputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E991D71AD254C100C3887F /* VDLUserInputManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +112,15 @@
 		51CD06721ADA1EE4008AB116 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		51CD06741ADA262D008AB116 /* VoidShip03_Exhaust@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoidShip03_Exhaust@2x.png"; sourceTree = "<group>"; };
 		51CEFBDD1AEFC1420012FAFA /* VDLQuadrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLQuadrant.swift; sourceTree = "<group>"; };
+		51DF93F21B2F1CC40052B54F /* Winged-Ship-Entire-Exhaust@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Winged-Ship-Entire-Exhaust@2x.png"; sourceTree = "<group>"; };
+		51DF93F41B2F1E010052B54F /* FaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaderView.swift; sourceTree = "<group>"; };
+		51DF94021B2F2AAD0052B54F /* Winged-Ship-Entire-Collision@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Winged-Ship-Entire-Collision@2x.png"; sourceTree = "<group>"; };
+		51DF94041B2F2CB80052B54F /* Winged-Ship-Entire_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Winged-Ship-Entire_normal@2x.png"; sourceTree = "<group>"; };
+		51DF94051B2F2CB80052B54F /* Winged-Ship-Entire@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Winged-Ship-Entire@2x.png"; sourceTree = "<group>"; };
+		51DF94081B2F2E040052B54F /* Winged-Ship-Entire-Exhaust-Left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Winged-Ship-Entire-Exhaust-Left@2x.png"; sourceTree = "<group>"; };
+		51DF94091B2F2E040052B54F /* Winged-Ship-Entire-Exhaust-Right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Winged-Ship-Entire-Exhaust-Right@2x.png"; sourceTree = "<group>"; };
+		51DF940C1B2F2F120052B54F /* Winged-Ship-Entire-Black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Winged-Ship-Entire-Black@2x.png"; sourceTree = "<group>"; };
+		51DF940E1B2F2F800052B54F /* Winged-Ship-Entire-Gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Winged-Ship-Entire-Gray@2x.png"; sourceTree = "<group>"; };
 		51E991D71AD254C100C3887F /* VDLUserInputManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDLUserInputManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +167,7 @@
 			children = (
 				51E3017F1ADA168B003D1147 /* VoidShip */,
 				514704791ABFB9B60069B25C /* AppDelegate.swift */,
+				51DF93F41B2F1E010052B54F /* FaderView.swift */,
 				5147047B1ABFB9B60069B25C /* ViewController.swift */,
 				515A28B21ABFBAC0009588DB /* MainScene.swift */,
 				51CD06701ADA1C18008AB116 /* RocketEmitter.sks */,
@@ -195,6 +214,14 @@
 		51E3017F1ADA168B003D1147 /* VoidShip */ = {
 			isa = PBXGroup;
 			children = (
+				51DF940E1B2F2F800052B54F /* Winged-Ship-Entire-Gray@2x.png */,
+				51DF940C1B2F2F120052B54F /* Winged-Ship-Entire-Black@2x.png */,
+				51DF94081B2F2E040052B54F /* Winged-Ship-Entire-Exhaust-Left@2x.png */,
+				51DF94091B2F2E040052B54F /* Winged-Ship-Entire-Exhaust-Right@2x.png */,
+				51DF94021B2F2AAD0052B54F /* Winged-Ship-Entire-Collision@2x.png */,
+				51DF93F21B2F1CC40052B54F /* Winged-Ship-Entire-Exhaust@2x.png */,
+				51DF94041B2F2CB80052B54F /* Winged-Ship-Entire_normal@2x.png */,
+				51DF94051B2F2CB80052B54F /* Winged-Ship-Entire@2x.png */,
 				51BBEC7B1B0E0D9A002DC7FD /* Asteroid2_Rock1@2x.png */,
 				51BBEC871B0E11D1002DC7FD /* Asteroid2_Rock1_Normal6@2x.png */,
 				51BBEC851B0E114B002DC7FD /* Asteroid2_Rock1_Normal5@2x.png */,
@@ -309,26 +336,34 @@
 				515A28B51ABFBCD2009588DB /* Ship@2x.png in Resources */,
 				51BBEC751B0E077E002DC7FD /* Asteroid_Normal@2x.png in Resources */,
 				51BBEC841B0E10E5002DC7FD /* Asteroid2_Rock1_Normal4@2x.png in Resources */,
+				51DF94061B2F2CB80052B54F /* Winged-Ship-Entire_normal@2x.png in Resources */,
 				514297C01ADA32530005911D /* VoidShip03-TopLayer@2x.png in Resources */,
 				51BBEC7E1B0E0D9A002DC7FD /* Asteroid2_Rock1_Normal@2x.png in Resources */,
 				51CD06731ADA1EE4008AB116 /* spark.png in Resources */,
+				51DF940D1B2F2F120052B54F /* Winged-Ship-Entire-Black@2x.png in Resources */,
 				51CD06751ADA262D008AB116 /* VoidShip03_Exhaust@2x.png in Resources */,
 				51BBEC861B0E114B002DC7FD /* Asteroid2_Rock1_Normal5@2x.png in Resources */,
 				5147047F1ABFB9B60069B25C /* Main.storyboard in Resources */,
 				514704841ABFB9B60069B25C /* LaunchScreen.xib in Resources */,
+				51DF940F1B2F2F800052B54F /* Winged-Ship-Entire-Gray@2x.png in Resources */,
 				5120EFB61B0852F700390F2E /* VoidShip03_Normal@2x.png in Resources */,
 				51BBEC821B0E0FD2002DC7FD /* Asteroid2_Rock1_Normal3@2x.png in Resources */,
+				51DF94031B2F2AAD0052B54F /* Winged-Ship-Entire-Collision@2x.png in Resources */,
 				5120EFB81B08559700390F2E /* VoidShip03_Flat@2x.png in Resources */,
 				51BBEC761B0E077E002DC7FD /* Asteroid@2x.png in Resources */,
 				51BD07B61B09B1A400947BD0 /* Cube_Normal@2x.png in Resources */,
 				51B7914C1B09E34E00F3D866 /* CubeTest2@1x.png in Resources */,
 				51BBEC7D1B0E0D9A002DC7FD /* Asteroid2_Rock1@2x.png in Resources */,
+				51DF94071B2F2CB80052B54F /* Winged-Ship-Entire@2x.png in Resources */,
 				51CD066F1ADA1B75008AB116 /* VoidShip03@2x.png in Resources */,
 				51BBEC801B0E0ECF002DC7FD /* Asteroid2_Rock1_Normal2@2x.png in Resources */,
 				514704811ABFB9B60069B25C /* Images.xcassets in Resources */,
 				51B7914B1B09E34E00F3D866 /* CubeTest2_Normal@1x.png in Resources */,
 				519EEA2D1ADA29E500297798 /* VoidShip03_CollisionBody@2x.png in Resources */,
 				51BBEC781B0E0BC0002DC7FD /* Asteroid_Rock1_Frontal@2x.png in Resources */,
+				51DF93F31B2F1CC40052B54F /* Winged-Ship-Entire-Exhaust@2x.png in Resources */,
+				51DF940B1B2F2E040052B54F /* Winged-Ship-Entire-Exhaust-Right@2x.png in Resources */,
+				51DF940A1B2F2E040052B54F /* Winged-Ship-Entire-Exhaust-Left@2x.png in Resources */,
 				519F97681AE8F0CE008E6FB6 /* spark_line-1.png in Resources */,
 				51CD06711ADA1C18008AB116 /* RocketEmitter.sks in Resources */,
 				51BBEC881B0E11D1002DC7FD /* Asteroid2_Rock1_Normal6@2x.png in Resources */,
@@ -359,6 +394,7 @@
 				5147047C1ABFB9B60069B25C /* ViewController.swift in Sources */,
 				514EAEFD1AD2579D00C88DF9 /* VDLObjectGenerator.swift in Sources */,
 				5147047A1ABFB9B60069B25C /* AppDelegate.swift in Sources */,
+				51DF93F51B2F1E010052B54F /* FaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
